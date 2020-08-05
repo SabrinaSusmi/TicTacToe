@@ -3,7 +3,6 @@ package TicTacToe;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.geom.RoundRectangle2D;
 
 public class GameUI {
     private JFrame frame;
@@ -13,6 +12,9 @@ public class GameUI {
     private JRadioButton classicTheme, forrestTheme, highContrastTheme;
     private ButtonGroup themeButtonGroup;
     private JButton randomAIButton, defensiveAIButton;
+
+    private BoardButtons boardButtons[] = new BoardButtons[9];
+
 
     public GameUI() {
         drawBoard();
@@ -25,11 +27,12 @@ public class GameUI {
         buttonPanel = new JPanel();
         themeButtonGroup = new ButtonGroup();
 
-        gamePanel.setLayout(null);
-        buttonPanel.setLayout(null);
-
         f1 = new Font("Arial", Font.BOLD, 20);
         f2 = new Font("Arial", Font.PLAIN, 15);
+
+
+        //button panel
+        buttonPanel.setLayout(null);
 
         theme = new JLabel("Theme");
         theme.setBounds(20, 50, 150, 50);
@@ -75,10 +78,21 @@ public class GameUI {
         defensiveAIButton.setBorder(null);
         buttonPanel.add(defensiveAIButton);
 
-        gamePanel.setBorder(BorderFactory.createLineBorder(Color.black));
-        gamePanel.setBackground(Color.WHITE);
         buttonPanel.setBorder(BorderFactory.createLineBorder(Color.black));
         buttonPanel.setBackground(Color.WHITE);
+
+        //game panel
+
+        gamePanel.setLayout(new GridLayout(3,3));
+
+        for(int i=0; i<9; i++) {
+            boardButtons[i] = new BoardButtons();
+            boardButtons[i].setBackground(Color.WHITE);
+            gamePanel.add(boardButtons[i]);
+        }
+
+        gamePanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        gamePanel.setBackground(Color.WHITE);
 
         containerPanel.setLayout(new GridLayout(1,2));
         containerPanel.add(gamePanel);
