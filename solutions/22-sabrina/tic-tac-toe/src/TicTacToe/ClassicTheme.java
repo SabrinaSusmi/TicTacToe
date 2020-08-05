@@ -9,13 +9,11 @@ public class ClassicTheme {
 
     public ClassicTheme(JPanel panel) {
         this.panel = panel;
-        //drawClassicTheme();
     }
 
     public JPanel drawClassicTheme() {
 
         panel.setLayout(new GridLayout(3,3));
-
 
         for (int i=0; i<9; i++) {
             button[i] = new JButton();
