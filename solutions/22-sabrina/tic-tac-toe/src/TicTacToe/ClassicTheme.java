@@ -6,6 +6,7 @@ import java.awt.*;
 public class ClassicTheme {
     private JPanel panel;
     private JButton button[] = new JButton[9];
+    DefensiveAI defensiveAI = new DefensiveAI();
 
     public ClassicTheme(JPanel panel) {
         this.panel = panel;
@@ -20,6 +21,9 @@ public class ClassicTheme {
             button[i].setBackground(Color.WHITE);
             button[i].setBorder(BorderFactory.createLineBorder(Color.black,2));
             panel.add(button[i]);
+        }
+        if(defensiveAI.firstMove(button)){
+            button[1].setText("X");
         }
 
         return panel;
