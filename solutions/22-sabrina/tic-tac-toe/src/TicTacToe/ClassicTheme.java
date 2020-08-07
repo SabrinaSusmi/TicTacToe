@@ -12,8 +12,8 @@ public class ClassicTheme {
     private String currentPlayer = "x";
     private int moveCount=0;
     RandomAI randomAI = new RandomAI();
-    BoardButtons boardButtons;
-    private JButton button[]= boardButtons.drawButton();
+    BoardButtons boardButtons = new BoardButtons();
+    private JButton button[]= new JButton[9];
 
     public ClassicTheme(JPanel panel) {
         this.panel = panel;
@@ -21,6 +21,7 @@ public class ClassicTheme {
 
     public JPanel drawClassicTheme() {
         panel.setLayout(new GridLayout(3,3));
+        button = boardButtons.drawButton(button);
 
         for (int i=0; i<9; i++) {
             int index = i;

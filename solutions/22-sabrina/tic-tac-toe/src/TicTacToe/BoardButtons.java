@@ -8,10 +8,10 @@ public class BoardButtons {
     private Font font = new Font("Arial", Font.BOLD, 40);
 
     public BoardButtons() {
-        drawButton();
     }
 
-    public JButton[] drawButton() {
+    public JButton[] drawButton(JButton button[]) {
+        this.button = button;
         for (int i=0; i<9; i++) {
             button[i] = new JButton();
             button[i].setBackground(Color.WHITE);
