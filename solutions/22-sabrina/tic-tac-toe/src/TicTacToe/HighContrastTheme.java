@@ -16,6 +16,7 @@ public class HighContrastTheme {
     public JPanel drawHighContrastTheme() {
 
         panel.setLayout(new GridLayout(3,3));
+        button = boardButtons.drawButton(button);
 
         for (int i=0; i<9; i++) {
             panel.add(button[i]);
