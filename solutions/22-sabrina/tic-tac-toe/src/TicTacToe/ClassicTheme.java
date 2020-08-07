@@ -11,8 +11,9 @@ public class ClassicTheme {
     private Font font = new Font("Arial", Font.BOLD, 30);
     private String currentPlayer = "x";
     private int moveCount=0;
+    private String theme = "classic";
     RandomAI randomAI = new RandomAI();
-    BoardButtons boardButtons = new BoardButtons();
+    BoardButtons boardButtons = new BoardButtons(theme);
     private JButton button[]= new JButton[9];
 
     public ClassicTheme(JPanel panel) {

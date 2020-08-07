@@ -6,6 +6,8 @@ import java.awt.*;
 public class ForestTheme {
     private JPanel panel;
     private JButton button[] = new JButton[9];
+    private String theme = "forest";
+    BoardButtons boardButtons = new BoardButtons(theme);
 
     public ForestTheme(JPanel panel) {
         this.panel = panel;
@@ -15,10 +17,9 @@ public class ForestTheme {
 
         panel.setLayout(new GridLayout(3,3));
 
+        button = boardButtons.drawButton(button);
+
         for (int i=0; i<9; i++) {
-            button[i] = new JButton();
-            button[i].setBackground(new Color(0x00ff00));
-            button[i].setBorder(BorderFactory.createLineBorder(new Color(0x056608),2));
             panel.add(button[i]);
         }
 
