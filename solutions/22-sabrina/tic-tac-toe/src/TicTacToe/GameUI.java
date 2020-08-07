@@ -2,18 +2,19 @@ package TicTacToe;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GameUI {
     private JFrame frame;
     private Font f1, f2;
-    private JPanel containerPanel, gamePanel, buttonPanel;
+    private JPanel containerPanel, gamePanelClassic, gamePanelForest, gamePanelHighContrast, buttonPanel;
     private JLabel theme;
     private JRadioButton classicTheme, forrestTheme, highContrastTheme;
     private ButtonGroup themeButtonGroup;
+    private String themeName = "classic";
     private JButton randomAIButton, defensiveAIButton;
 
-    //private JButton gameButtons[] = new JButton[9];
-    //BoardButtons boardButtons;
 
 
     public GameUI() {
@@ -23,12 +24,17 @@ public class GameUI {
     private void drawBoard() {
         frame = new JFrame();
         containerPanel = new JPanel();
-        gamePanel = new JPanel();
+        gamePanelClassic = new JPanel();
+        gamePanelForest = new JPanel();
+        gamePanelHighContrast = new JPanel();
         buttonPanel = new JPanel();
         themeButtonGroup = new ButtonGroup();
 
+
         f1 = new Font("Arial", Font.BOLD, 20);
         f2 = new Font("Arial", Font.PLAIN, 15);
+
+        //gamePanel = classicThemeUI.drawClassicTheme();
 
 
         //button panel
@@ -43,19 +49,40 @@ public class GameUI {
         classicTheme.setBounds(20, 90, 150, 50);
         classicTheme.setBackground(Color.WHITE);
         classicTheme.setFont(f2);
+        classicTheme.setSelected(true);
         buttonPanel.add(classicTheme);
+        classicTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                themeName = "classic";
+            }
+        });
 
-        forrestTheme = new JRadioButton("Forrest");
+        forrestTheme = new JRadioButton("Forest");
         forrestTheme.setBounds(20,130,150,50);
         forrestTheme.setBackground(Color.WHITE);
         forrestTheme.setFont(f2);
         buttonPanel.add(forrestTheme);
+        forrestTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                themeName = "forest";
+            }
+        });
 
         highContrastTheme = new JRadioButton("High Contrast");
         highContrastTheme.setBounds(20, 170,170,50);
         highContrastTheme.setBackground(Color.WHITE);
         highContrastTheme.setFont(f2);
+
+        highContrastTheme.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 themeName = "highContrast";
+            }
+        });
         buttonPanel.add(highContrastTheme);
+
 
         themeButtonGroup.add(classicTheme);
         themeButtonGroup.add(forrestTheme);
@@ -83,10 +110,35 @@ public class GameUI {
 
         //game panel
 
-        ClassicTheme classicThemeUI = new ClassicTheme(gamePanel);
+        //gamePanel=themeSwitcher(gamePanel);
+
+
+        ClassicTheme classicThemeUI = new ClassicTheme(gamePanelClassic);
+        gamePanelClassic = classicThemeUI.drawClassicTheme();
+        ForestTheme forestThemeUI = new ForestTheme(gamePanelForest);
+        gamePanelForest = forestThemeUI.drawForestTheme();
+        HighContrastTheme highContrastThemeUI = new HighContrastTheme(gamePanelHighContrast);
+        gamePanelHighContrast = highContrastThemeUI.drawHighContrastTheme();
+
 
         containerPanel.setLayout(new GridLayout(1,2));
-        containerPanel.add(classicThemeUI.drawClassicTheme());
+        if(themeName=="forest"){
+            containerPanel.remove(gamePanelClassic);
+            containerPanel.remove(gamePanelHighContrast);
+            containerPanel.add(gamePanelForest);
+        }
+        else if(themeName=="classic") {
+            containerPanel.remove(gamePanelHighContrast);
+            containerPanel.remove(gamePanelForest);
+            containerPanel.add(gamePanelClassic);
+        }
+        else if(themeName=="highContrast"){
+            containerPanel.remove(gamePanelForest);
+            containerPanel.remove(gamePanelClassic);
+            containerPanel.add(gamePanelHighContrast);
+        }
+
+        containerPanel.add(gamePanelHighContrast);
         containerPanel.add(buttonPanel);
 
 
@@ -99,6 +151,25 @@ public class GameUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Tic Tac Toe");
     }
+
+    private JPanel themeSwitcher(JPanel gamePanel){
+        //JPanel panel = new JPanel();
+        if(themeName=="forest"){
+            ForestTheme forestThemeUI = new ForestTheme(gamePanel);
+            gamePanel = forestThemeUI.drawForestTheme();
+        }
+        else if(themeName=="classic") {
+            ClassicTheme classicThemeUI = new ClassicTheme(gamePanel);
+            gamePanel = classicThemeUI.drawClassicTheme();
+        }
+        else if(themeName=="highContrast"){
+            HighContrastTheme highContrastThemeUI = new HighContrastTheme(gamePanel);
+            gamePanel = highContrastThemeUI.drawHighContrastTheme();
+        }
+        return gamePanel;
+    }
+
+
 
     public static void main(String[] args) {
         new GameUI();
