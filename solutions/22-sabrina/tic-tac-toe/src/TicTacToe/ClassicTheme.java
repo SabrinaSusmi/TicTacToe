@@ -11,6 +11,7 @@ public class ClassicTheme {
     private JButton button[] = new JButton[9];
     private Font font = new Font("Arial", Font.BOLD, 30);
     private String currentPlayer = "x";
+    private int moveCount=0;
     RandomAI randomAI = new RandomAI();
 
     public ClassicTheme(JPanel panel) {
@@ -32,7 +33,10 @@ public class ClassicTheme {
                     if(((JButton) e.getSource()).getText().equals("") && currentPlayer=="x") {
                         button[index].setText("X");
                         currentPlayer="o";
-                        togglePlayer();
+                        moveCount++;
+                        if(moveCount<=8){
+                            togglePlayer();
+                        }
                     }
                 }
             });
@@ -46,6 +50,7 @@ public class ClassicTheme {
     private void togglePlayer(){
         if(currentPlayer=="o"){
             randomAI.randomMove(button);
+            moveCount++;
             currentPlayer="x";
         }
     }
