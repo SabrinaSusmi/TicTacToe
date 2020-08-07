@@ -24,6 +24,10 @@ public class BoardButtons {
                 button[i].setBackground(Color.WHITE);
                 button[i].setBorder(BorderFactory.createLineBorder(Color.black,2));
             }
+            else if(theme=="highContrast"){
+                button[i].setBackground(new Color(0x69696f));
+                button[i].setBorder(BorderFactory.createLineBorder(new Color(0xc0c0c0),2));
+            }
             button[i].setFont(font);
         }
         return button;
