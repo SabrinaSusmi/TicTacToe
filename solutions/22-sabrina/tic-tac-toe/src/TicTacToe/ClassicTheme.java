@@ -10,7 +10,7 @@ public class ClassicTheme {
     private JPanel panel;
     private JButton button[] = new JButton[9];
     private Font font = new Font("Arial", Font.BOLD, 30);
-    private String currentPlayer;
+    private String currentPlayer = "x";
 
     public ClassicTheme(JPanel panel) {
         this.panel = panel;
@@ -23,41 +23,32 @@ public class ClassicTheme {
             button[i] = new JButton();
             button[i].setBackground(Color.WHITE);
             button[i].setBorder(BorderFactory.createLineBorder(Color.black,2));
+            button[i].setFont(font);
+            int index = i;
+            button[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if(((JButton) e.getSource()).getText().equals("") && currentPlayer=="x") {
+                        button[index].setText("X");
+                        currentPlayer="o";
+                        togglePlayer();
+                    }
+                }
+            });
             panel.add(button[i]);
-        }
-
-        currentPlayer = "x";
-
-        for(int i=0; i<9; i++){
-            if(currentPlayer=="x"){
-                playerMove(button);
-                currentPlayer="o";
-            }
-            else {
-                AIMove(button);
-                currentPlayer="x";
-            }
         }
 
 
         return panel;
     }
 
-    private void playerMove(JButton button[]){
-        for (JButton b: button
-        ) {
-            b.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(b.getText()==""){
-                        b.setText("X");
-                        b.setFont(font);
-                    }
-                }
-            });
-
+    private void togglePlayer(){
+        if(currentPlayer=="o"){
+            AIMove(button);
+            currentPlayer="x";
         }
     }
+
 
     private void AIMove(JButton button[]){
         int index = new Random().nextInt(9);
@@ -69,6 +60,5 @@ public class ClassicTheme {
                 break;
         }
         button[index].setText("O");
-        button[index].setFont(font);
     }
 }
