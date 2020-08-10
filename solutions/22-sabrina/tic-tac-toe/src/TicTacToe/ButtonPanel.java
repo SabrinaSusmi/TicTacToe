@@ -6,15 +6,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ButtonPanel {
+    private JFrame frame;
     private JPanel buttonPanel;
     private Font f1, f2;
     private JLabel theme;
     private JRadioButton classicTheme, forrestTheme, highContrastTheme;
     private ButtonGroup themeButtonGroup;
     private JButton randomAIButton, defensiveAIButton;
+    //GameLauncher gameLauncher = new GameLauncher();
 
-    public ButtonPanel() {
-
+    public ButtonPanel(JFrame frame) {
+        this.frame = frame;
     }
 
     public JPanel drawButtonPanel(JPanel buttonPanel){
@@ -41,7 +43,8 @@ public class ButtonPanel {
         classicTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+//                new GameUI(frame,"classic");
+                new GameLauncher(frame,"classic");
             }
         });
 
@@ -53,7 +56,8 @@ public class ButtonPanel {
         forrestTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //new GameUI(frame,"forest");
+                new GameLauncher(frame,"forest");
             }
         });
 
@@ -65,7 +69,8 @@ public class ButtonPanel {
         highContrastTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //new GameUI(frame,"highContrast");
+                new GameLauncher(frame,"highContrast");
             }
         });
         buttonPanel.add(highContrastTheme);

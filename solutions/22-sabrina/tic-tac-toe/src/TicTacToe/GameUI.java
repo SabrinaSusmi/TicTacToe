@@ -5,55 +5,58 @@ import java.awt.*;
 
 public class GameUI {
     private JFrame frame;
-    private Font f1, f2;
     private JPanel containerPanel, gamePanelClassic, gamePanelForest, gamePanelHighContrast, panelButtons;
-    private JLabel theme;
-    private JRadioButton classicTheme, forrestTheme, highContrastTheme;
-    private ButtonGroup themeButtonGroup;
-    private String themeName = "classic";
-    private JButton randomAIButton, defensiveAIButton;
+    private String themeName;
 
 
 
-    public GameUI() {
+    public GameUI(String themeName) {
+        //this.frame = frame;
+        this.themeName = themeName;
         drawBoard();
     }
 
     private void drawBoard() {
 
-        ButtonPanel buttonPanel = new ButtonPanel();
+        ButtonPanel buttonPanel = new ButtonPanel(frame);
         frame = new JFrame();
-        containerPanel = new JPanel();
-        gamePanelClassic = new JPanel();
-        gamePanelForest = new JPanel();
-        gamePanelHighContrast = new JPanel();
-        panelButtons = new JPanel();
-        panelButtons = buttonPanel.drawButtonPanel(panelButtons);
-        themeButtonGroup = new ButtonGroup();
-
-
-        f1 = new Font("Arial", Font.BOLD, 20);
-        f2 = new Font("Arial", Font.PLAIN, 15);
-
-        //gamePanel=themeSwitcher(gamePanel);
-
-
-        ClassicTheme classicThemeUI = new ClassicTheme(gamePanelClassic);
-        gamePanelClassic = classicThemeUI.drawClassicTheme();
-        ForestTheme forestThemeUI = new ForestTheme(gamePanelForest);
-        gamePanelForest = forestThemeUI.drawForestTheme();
-        HighContrastTheme highContrastThemeUI = new HighContrastTheme(gamePanelHighContrast);
-        gamePanelHighContrast = highContrastThemeUI.drawHighContrastTheme();
-
-
-        containerPanel.setLayout(new GridLayout(1,2));
-
-        containerPanel.add(gamePanelClassic);
-        containerPanel.add(panelButtons);
-
-
-
-        frame.add(containerPanel);
+//        containerPanel = new JPanel();
+//        gamePanelClassic = new JPanel();
+//        gamePanelForest = new JPanel();
+//        gamePanelHighContrast = new JPanel();
+//        panelButtons = new JPanel();
+//        panelButtons = buttonPanel.drawButtonPanel(panelButtons);
+//
+//        containerPanel.setLayout(new GridLayout(1,2));
+//        containerPanel.add(panelButtons);
+//
+//
+//        ClassicTheme classicThemeUI = new ClassicTheme(gamePanelClassic);
+//        gamePanelClassic = classicThemeUI.drawClassicTheme();
+//        ForestTheme forestThemeUI = new ForestTheme(gamePanelForest);
+//        gamePanelForest = forestThemeUI.drawForestTheme();
+//        HighContrastTheme highContrastThemeUI = new HighContrastTheme(gamePanelHighContrast);
+//        gamePanelHighContrast = highContrastThemeUI.drawHighContrastTheme();
+//
+//
+//        containerPanel.setLayout(new GridLayout(1,2));
+//
+//        if(themeName=="forest"){
+//            containerPanel.add(gamePanelForest);
+//        }
+//        else if((themeName=="classic")||(themeName=="start")) {
+//            containerPanel.add(gamePanelClassic);
+//        }
+//        else if(themeName=="highContrast"){
+//            containerPanel.add(gamePanelHighContrast);
+//        }
+//
+//        containerPanel.add(panelButtons);
+//
+//
+//
+//        frame.add(containerPanel);
+        GameLauncher gameLauncher = new GameLauncher(frame, "start");
         frame.setAlwaysOnTop(true);
         frame.setResizable(false);
         frame.setSize(1000,500);
@@ -64,6 +67,7 @@ public class GameUI {
 
 
     public static void main(String[] args) {
-        new GameUI();
+//        JFrame frame = new JFrame();
+        new GameUI("start");
     }
 }
