@@ -19,9 +19,8 @@ public class ForestTheme {
 
         button = boardButtons.drawButton(button);
 
-        for (int i=0; i<9; i++) {
-            panel.add(button[i]);
-        }
+        PlayerMove playerMove = new PlayerMove(button,panel);
+        playerMove.playerMove();
 
         return panel;
     }

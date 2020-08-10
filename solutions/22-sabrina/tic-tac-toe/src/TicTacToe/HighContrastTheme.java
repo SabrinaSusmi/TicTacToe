@@ -18,9 +18,8 @@ public class HighContrastTheme {
         panel.setLayout(new GridLayout(3,3));
         button = boardButtons.drawButton(button);
 
-        for (int i=0; i<9; i++) {
-            panel.add(button[i]);
-        }
+        PlayerMove playerMove = new PlayerMove(button,panel);
+        playerMove.playerMove();
 
         return panel;
     }
