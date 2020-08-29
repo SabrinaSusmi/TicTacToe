@@ -3,18 +3,14 @@ package TicTacToe;
 import javax.swing.*;
 import java.awt.*;
 
-public class HighContrastTheme {
+public class HighContrastTheme implements Theme{
     private JPanel panel;
     private JButton button[] = new JButton[9];
     private String theme = "highContrast";
     BoardButtons boardButtons = new BoardButtons(theme);
 
-    public HighContrastTheme(JPanel panel) {
-        this.panel = panel;
-    }
-
-    public JPanel drawHighContrastTheme() {
-
+    @Override
+    public JPanel drawTheme(JPanel panel) {
         panel.setLayout(new GridLayout(3,3));
         button = boardButtons.drawButton(button);
 
