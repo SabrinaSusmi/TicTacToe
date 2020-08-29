@@ -6,18 +6,17 @@ import java.awt.*;
 public class ForestTheme implements Theme{
     private JPanel panel;
     private JButton button[] = new JButton[9];
-    private String theme = "forest";
-    BoardButtons boardButtons = new BoardButtons(theme);
+    GamePanel gamePanel = new GamePanel();
 
     @Override
-    public JPanel drawTheme(JPanel panel) {
-        panel.setLayout(new GridLayout(3,3));
-
-        button = boardButtons.drawButton(button);
+    public void drawTheme() {
+        button = gamePanel.button;
+        for (int i=0; i<9; i++){
+            button[i].setBackground(new Color(0x00ff00));
+            button[i].setBorder(BorderFactory.createLineBorder(new Color(0x056608),2));
+        }
 
         PlayerMove playerMove = new PlayerMove(button,panel);
         playerMove.playerMove();
-
-        return panel;
     }
 }

@@ -5,17 +5,19 @@ import java.awt.*;
 
 public class ClassicTheme implements Theme{
     private JPanel panel;
-    private String theme = "classic";
-    BoardButtons boardButtons = new BoardButtons(theme);
     private JButton button[]= new JButton[9];
+    GamePanel gamePanel = new GamePanel();
 
     @Override
-    public JPanel drawTheme(JPanel panel) {
-        panel.setLayout(new GridLayout(3,3));
-        button = boardButtons.drawButton(button);
+    public void drawTheme() {
+        //button = boardButtons.drawButton(button);
+        button = gamePanel.button;
+        for (int i=0; i<9; i++){
+            button[i].setBackground(Color.WHITE);
+            button[i].setBorder(BorderFactory.createLineBorder(Color.black,2));
+        }
         PlayerMove playerMove = new PlayerMove(button,panel);
         playerMove.playerMove();
 
-        return panel;
     }
 }

@@ -5,58 +5,28 @@ import java.awt.*;
 
 public class GameUI {
     private JFrame frame;
-    private JPanel containerPanel, gamePanelClassic, gamePanelForest, gamePanelHighContrast, panelButtons;
-    private String themeName;
+    private JPanel containerPanel,panelButtons,panelGame;
 
-
-
-    public GameUI(String themeName) {
-        //this.frame = frame;
-        this.themeName = themeName;
+    public GameUI() {
         drawBoard();
     }
 
     private void drawBoard() {
 
-        ButtonPanel buttonPanel = new ButtonPanel(frame);
+        ButtonPanel buttonPanel = new ButtonPanel();
+        GamePanel gamePanel = new GamePanel();
         frame = new JFrame();
-//        containerPanel = new JPanel();
-//        gamePanelClassic = new JPanel();
-//        gamePanelForest = new JPanel();
-//        gamePanelHighContrast = new JPanel();
-//        panelButtons = new JPanel();
-//        panelButtons = buttonPanel.drawButtonPanel(panelButtons);
-//
-//        containerPanel.setLayout(new GridLayout(1,2));
-//        containerPanel.add(panelButtons);
-//
-//
-//        ClassicTheme classicThemeUI = new ClassicTheme(gamePanelClassic);
-//        gamePanelClassic = classicThemeUI.drawClassicTheme();
-//        ForestTheme forestThemeUI = new ForestTheme(gamePanelForest);
-//        gamePanelForest = forestThemeUI.drawForestTheme();
-//        HighContrastTheme highContrastThemeUI = new HighContrastTheme(gamePanelHighContrast);
-//        gamePanelHighContrast = highContrastThemeUI.drawHighContrastTheme();
-//
-//
-//        containerPanel.setLayout(new GridLayout(1,2));
-//
-//        if(themeName=="forest"){
-//            containerPanel.add(gamePanelForest);
-//        }
-//        else if((themeName=="classic")||(themeName=="start")) {
-//            containerPanel.add(gamePanelClassic);
-//        }
-//        else if(themeName=="highContrast"){
-//            containerPanel.add(gamePanelHighContrast);
-//        }
-//
-//        containerPanel.add(panelButtons);
-//
-//
-//
-//        frame.add(containerPanel);
-        GameLauncher gameLauncher = new GameLauncher(frame, "start");
+        containerPanel = new JPanel();
+        panelGame = new JPanel();
+        panelButtons = new JPanel();
+        panelButtons = buttonPanel.drawButtonPanel(panelButtons);
+        panelGame = gamePanel.drawBoardGrid(panelGame);
+
+        containerPanel.setLayout(new GridLayout(1,2));
+        containerPanel.add(panelGame);
+        containerPanel.add(panelButtons);
+
+        frame.add(containerPanel);
         frame.setAlwaysOnTop(true);
         frame.setResizable(false);
         frame.setSize(1000,500);
@@ -68,6 +38,6 @@ public class GameUI {
 
     public static void main(String[] args) {
 //        JFrame frame = new JFrame();
-        new GameUI("start");
+        new GameUI();
     }
 }

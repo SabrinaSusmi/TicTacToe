@@ -6,17 +6,18 @@ import java.awt.*;
 public class HighContrastTheme implements Theme{
     private JPanel panel;
     private JButton button[] = new JButton[9];
-    private String theme = "highContrast";
-    BoardButtons boardButtons = new BoardButtons(theme);
+    GamePanel gamePanel = new GamePanel();
 
     @Override
-    public JPanel drawTheme(JPanel panel) {
-        panel.setLayout(new GridLayout(3,3));
-        button = boardButtons.drawButton(button);
+    public void drawTheme() {
+
+        button = gamePanel.button;
+        for (int i=0; i<9; i++){
+            button[i].setBackground(new Color(0x69696f));
+            button[i].setBorder(BorderFactory.createLineBorder(new Color(0xc0c0c0),2));
+        }
 
         PlayerMove playerMove = new PlayerMove(button,panel);
         playerMove.playerMove();
-
-        return panel;
     }
 }

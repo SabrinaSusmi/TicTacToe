@@ -13,11 +13,6 @@ public class ButtonPanel {
     private JRadioButton classicTheme, forrestTheme, highContrastTheme;
     private ButtonGroup themeButtonGroup;
     private JButton randomAIButton, defensiveAIButton;
-    //GameLauncher gameLauncher = new GameLauncher();
-
-    public ButtonPanel(JFrame frame) {
-        this.frame = frame;
-    }
 
     public JPanel drawButtonPanel(JPanel buttonPanel){
         this.buttonPanel = buttonPanel;
@@ -43,8 +38,9 @@ public class ButtonPanel {
         classicTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                changeTheme("classic");
 //                new GameUI(frame,"classic");
-                new GameLauncher(frame,"classic");
+//                new GameLauncher(frame,"classic");
             }
         });
 
@@ -56,8 +52,9 @@ public class ButtonPanel {
         forrestTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                changeTheme("forest");
                 //new GameUI(frame,"forest");
-                new GameLauncher(frame,"forest");
+//                new GameLauncher(frame,"forest");
             }
         });
 
@@ -69,8 +66,9 @@ public class ButtonPanel {
         highContrastTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                changeTheme("highContrast");
                 //new GameUI(frame,"highContrast");
-                new GameLauncher(frame,"highContrast");
+               // new GameLauncher(frame,"highContrast");
             }
         });
         buttonPanel.add(highContrastTheme);
@@ -101,5 +99,26 @@ public class ButtonPanel {
         buttonPanel.setBackground(Color.WHITE);
 
         return buttonPanel;
+    }
+
+    public void changeTheme(String themeName){
+        //Theme theme = null;
+        if(themeName=="forest"){
+            ForestTheme forestTheme = new ForestTheme();
+            forestTheme.drawTheme();
+        }
+        else if(themeName=="classic") {
+            ClassicTheme classicTheme = new ClassicTheme();
+            classicTheme.drawTheme();
+            //theme = new ClassicTheme();
+        }
+        else if(themeName=="highContrast"){
+            //theme = new HighContrastTheme();
+            HighContrastTheme highContrastTheme = new HighContrastTheme();
+            highContrastTheme.drawTheme();
+        }
+
+        //theme.drawTheme();
+
     }
 }
