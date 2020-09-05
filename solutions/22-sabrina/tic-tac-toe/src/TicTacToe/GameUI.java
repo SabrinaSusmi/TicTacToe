@@ -6,6 +6,7 @@ import java.awt.*;
 public class GameUI {
     private JFrame frame;
     private JPanel containerPanel,panelButtons,panelGame;
+    public JButton button[] = new JButton[9];
 
     public GameUI() {
         drawBoard();
@@ -15,6 +16,10 @@ public class GameUI {
 
         ButtonPanel buttonPanel = new ButtonPanel();
         GamePanel gamePanel = new GamePanel();
+        BoardButtons boardButtons = new BoardButtons();
+        button=boardButtons.drawButton();
+        gamePanel.getButton(button);
+        buttonPanel.getButton(button);
         frame = new JFrame();
         containerPanel = new JPanel();
         panelGame = new JPanel();
@@ -37,7 +42,6 @@ public class GameUI {
 
 
     public static void main(String[] args) {
-//        JFrame frame = new JFrame();
         new GameUI();
     }
 }

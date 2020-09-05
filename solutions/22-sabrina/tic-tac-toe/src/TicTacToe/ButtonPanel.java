@@ -13,6 +13,11 @@ public class ButtonPanel {
     private JRadioButton classicTheme, forrestTheme, highContrastTheme;
     private ButtonGroup themeButtonGroup;
     private JButton randomAIButton, defensiveAIButton;
+    public JButton button[] = new JButton[9];
+
+    public void getButton(JButton button[]){
+        this.button=button;
+    }
 
     public JPanel drawButtonPanel(JPanel buttonPanel){
         this.buttonPanel = buttonPanel;
@@ -39,8 +44,6 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeTheme("classic");
-//                new GameUI(frame,"classic");
-//                new GameLauncher(frame,"classic");
             }
         });
 
@@ -53,8 +56,6 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeTheme("forest");
-                //new GameUI(frame,"forest");
-//                new GameLauncher(frame,"forest");
             }
         });
 
@@ -67,8 +68,6 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeTheme("highContrast");
-                //new GameUI(frame,"highContrast");
-               // new GameLauncher(frame,"highContrast");
             }
         });
         buttonPanel.add(highContrastTheme);
@@ -102,23 +101,21 @@ public class ButtonPanel {
     }
 
     public void changeTheme(String themeName){
-        //Theme theme = null;
+        Theme theme;
         if(themeName=="forest"){
-            ForestTheme forestTheme = new ForestTheme();
-            forestTheme.drawTheme();
+            theme=new ForestTheme();
+            theme.getButton(button);
+            theme.drawTheme();
         }
         else if(themeName=="classic") {
-            ClassicTheme classicTheme = new ClassicTheme();
-            classicTheme.drawTheme();
-            //theme = new ClassicTheme();
+            theme = new ClassicTheme();
+            theme.getButton(button);
+            theme.drawTheme();
         }
         else if(themeName=="highContrast"){
-            //theme = new HighContrastTheme();
-            HighContrastTheme highContrastTheme = new HighContrastTheme();
-            highContrastTheme.drawTheme();
+            theme = new HighContrastTheme();
+            theme.getButton(button);
+            theme.drawTheme();
         }
-
-        //theme.drawTheme();
-
     }
 }
