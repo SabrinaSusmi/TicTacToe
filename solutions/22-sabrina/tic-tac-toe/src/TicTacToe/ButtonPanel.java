@@ -13,9 +13,9 @@ public class ButtonPanel {
     private JRadioButton classicTheme, forrestTheme, highContrastTheme;
     private ButtonGroup themeButtonGroup;
     private JButton randomAIButton, defensiveAIButton;
-    public JButton button[] = new JButton[9];
+    public JButton button[][] = new JButton[3][3];
 
-    public void getButton(JButton button[]){
+    public void getButton(JButton button[][]){
         this.button=button;
     }
 

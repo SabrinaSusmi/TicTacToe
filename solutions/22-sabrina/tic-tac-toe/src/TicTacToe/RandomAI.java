@@ -5,15 +5,17 @@ import java.util.Random;
 
 public class RandomAI implements AI{
     @Override
-    public void move(JButton button[]) {
-        int index = new Random().nextInt(9);
+    public void move(JButton button[][]) {
+        int row = new Random().nextInt(3);
+        int col = new Random().nextInt(3);
         while(true){
-            if(button[index].getText()!=""){
-                index = new Random().nextInt(9);
+            if(button[row][col].getText()!=""){
+                row = new Random().nextInt(3);
+                col = new Random().nextInt(3);
             }
             else
                 break;
         }
-        button[index].setText("O");
+        button[row][col].setText("O");
     }
 }
