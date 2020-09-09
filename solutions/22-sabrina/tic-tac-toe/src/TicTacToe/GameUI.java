@@ -6,7 +6,7 @@ import java.awt.*;
 public class GameUI {
     private JFrame frame;
     private JPanel containerPanel,panelButtons,panelGame;
-    public JButton button[] = new JButton[9];
+    public JButton button[][] = new JButton[3][3];
 
     public GameUI() {
         drawBoard();
