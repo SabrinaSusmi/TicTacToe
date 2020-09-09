@@ -18,6 +18,8 @@ public class GamePanel {
         for(int i=0; i<9; i++){
             panel.add(button[i]);
         }
+        PlayerMove playerMove = new PlayerMove(button);
+        playerMove.playerMove();
 
         return panel;
     }

@@ -12,9 +12,8 @@ public class PlayerMove {
     private int moveCount=0;
     RandomAI randomAI = new RandomAI();
 
-    public PlayerMove(JButton[] button, JPanel panel) {
+    public PlayerMove(JButton[] button) {
         this.button = button;
-        this.panel = panel;
     }
 
     public void playerMove() {
@@ -33,7 +32,6 @@ public class PlayerMove {
                     }
                 }
             });
-            panel.add(button[i]);
         }
     }
     private void togglePlayer(){

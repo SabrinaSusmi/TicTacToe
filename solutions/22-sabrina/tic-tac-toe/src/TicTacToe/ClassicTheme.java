@@ -18,8 +18,6 @@ public class ClassicTheme implements Theme{
             button[i].setBackground(Color.WHITE);
             button[i].setBorder(BorderFactory.createLineBorder(Color.black,2));
         }
-//        PlayerMove playerMove = new PlayerMove(button,panel);
-//        playerMove.playerMove();
 
     }
 }
