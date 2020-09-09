@@ -3,8 +3,9 @@ package TicTacToe;
 import javax.swing.*;
 import java.util.Random;
 
-public class RandomAI {
-    public void randomMove(JButton button[]){
+public class RandomAI implements AI{
+    @Override
+    public void move(JButton button[]) {
         int index = new Random().nextInt(9);
         while(true){
             if(button[index].getText()!=""){
