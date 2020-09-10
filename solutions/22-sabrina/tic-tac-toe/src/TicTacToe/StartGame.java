@@ -6,12 +6,23 @@ import java.awt.event.ActionListener;
 
 public class StartGame {
     public JButton button[][] = new JButton[3][3];
+    String string;
     private String currentPlayer = "x";
     private int moveCount=0;
-    AI ai = new RandomAI();
+    AI ai;
 
     public void getButton(JButton button[][]){
         this.button=button;
+    }
+
+    public void getAITYpe(String string){
+        this.string=string;
+        if(string=="random"){
+            ai = new RandomAI();
+        }
+        else {
+            ai= new DefensiveAI();
+        }
     }
 
     public void playersMove(JButton button){
