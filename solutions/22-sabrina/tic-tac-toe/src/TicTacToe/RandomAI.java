@@ -16,6 +16,6 @@ public class RandomAI implements AI{
             else
                 break;
         }
-        button[row][col].setText("O");
+        button[row][col].setText("o");
     }
 }
