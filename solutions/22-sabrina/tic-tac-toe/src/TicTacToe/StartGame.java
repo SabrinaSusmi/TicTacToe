@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StartGame {
+    JFrame frame = new JFrame("Winner Message");
     public JButton button[][] = new JButton[3][3];
     String string;
     private String currentPlayer = "x";
@@ -35,6 +36,7 @@ public class StartGame {
             if(isWon()==true){
                 newBoard();
                 moveCount=0;
+                JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
             }
             else {
                 moveCount++;
@@ -71,6 +73,14 @@ public class StartGame {
     }
 
     public void move(){
+
+        frame.setAlwaysOnTop(true);
+        frame.setResizable(false);
+        frame.setSize(300,150);
+        frame.setVisible(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
         for (int i=0; i<3; i++) {
             for (int j = 0; j < 3; j++) {
                 int row = i;
@@ -83,6 +93,7 @@ public class StartGame {
                             if(isWon()==true){
                                 newBoard();
                                 moveCount=0;
+                                JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
                             }
                             else{
                                 currentPlayer = "o";
