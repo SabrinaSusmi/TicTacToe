@@ -35,6 +35,8 @@ public class ButtonPanel {
         theme.setFont(f1);
         buttonPanel.add(theme);
 
+        setTheme("classic");
+
         classicTheme = new JRadioButton("Classic");
         classicTheme.setBounds(20, 90, 150, 50);
         classicTheme.setBackground(Color.WHITE);
@@ -44,7 +46,7 @@ public class ButtonPanel {
         classicTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeTheme("classic");
+                setTheme("classic");
             }
         });
 
@@ -56,7 +58,7 @@ public class ButtonPanel {
         forrestTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeTheme("forest");
+                setTheme("forest");
             }
         });
 
@@ -68,7 +70,7 @@ public class ButtonPanel {
         highContrastTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                changeTheme("highContrast");
+                setTheme("highContrast");
             }
         });
         buttonPanel.add(highContrastTheme);
@@ -117,7 +119,7 @@ public class ButtonPanel {
         return buttonPanel;
     }
 
-    public void changeTheme(String themeName){
+    public void setTheme(String themeName){
         Theme theme;
         if(themeName=="forest"){
             theme=new ForestTheme();
