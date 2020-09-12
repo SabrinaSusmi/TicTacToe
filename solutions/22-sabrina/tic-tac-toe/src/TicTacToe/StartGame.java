@@ -101,6 +101,9 @@ public class StartGame {
                                 if (moveCount <= 8) {
                                     computersMove();
                                 }
+                                if(moveCount==9){
+                                    JOptionPane.showMessageDialog(frame, "Match Draw!");
+                                }
                             }
                         }
                     }
