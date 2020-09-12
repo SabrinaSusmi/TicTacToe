@@ -30,9 +30,17 @@ public class StartGame {
     }
 
     public void computersMove(){
-        ai.move(button);
-        moveCount++;
-        currentPlayer="x";
+        if(currentPlayer=="o") {
+            ai.move(button);
+            if(isWon()==true){
+                newBoard();
+                moveCount=0;
+            }
+            else {
+                moveCount++;
+                currentPlayer="x";
+            }
+        }
     }
 
     private boolean isWon(){
@@ -76,13 +84,11 @@ public class StartGame {
                                 newBoard();
                                 moveCount=0;
                             }
-                            currentPlayer = "o";
-                            moveCount++;
-                            if (moveCount <= 8) {
-                                computersMove();
-                                if(isWon()==true){
-                                    newBoard();
-                                    moveCount=0;
+                            else{
+                                currentPlayer = "o";
+                                moveCount++;
+                                if (moveCount <= 8) {
+                                    computersMove();
                                 }
                             }
                         }

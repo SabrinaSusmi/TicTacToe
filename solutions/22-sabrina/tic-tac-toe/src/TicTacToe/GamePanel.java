@@ -20,8 +20,11 @@ public class GamePanel {
                 panel.add(button[i][j]);
             }
         }
-        PlayerMove playerMove = new PlayerMove(button);
-        playerMove.playerMove();
+//        PlayerMove playerMove = new PlayerMove(button);
+//        playerMove.playerMove();
+//        StartGame startGame = new StartGame();
+//        startGame.getButton(button);
+//        startGame.move();
 
         return panel;
     }

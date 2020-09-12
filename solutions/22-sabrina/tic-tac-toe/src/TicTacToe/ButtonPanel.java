@@ -14,6 +14,7 @@ public class ButtonPanel {
     private ButtonGroup themeButtonGroup;
     private JButton randomAIButton, defensiveAIButton;
     public JButton button[][] = new JButton[3][3];
+    StartGame startGame = new StartGame();
 
     public void getButton(JButton button[][]){
         this.button=button;
@@ -77,12 +78,21 @@ public class ButtonPanel {
         themeButtonGroup.add(forrestTheme);
         themeButtonGroup.add(highContrastTheme);
 
+        startGame.getButton(button);
+
         randomAIButton = new JButton("Start With Random AI");
         randomAIButton.setBounds(20, 300, 280, 45);
         randomAIButton.setFont(f1);
         randomAIButton.setBackground(Color.darkGray);
         randomAIButton.setForeground(Color.WHITE);
         randomAIButton.setBorder(null);
+        randomAIButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startGame.getAITYpe("random");
+                startGame.move();
+            }
+        });
         //randomAIButton.setBorder(new RoundedShape(10));
         buttonPanel.add(randomAIButton);
 
@@ -92,6 +102,13 @@ public class ButtonPanel {
         defensiveAIButton.setBackground(Color.darkGray);
         defensiveAIButton.setForeground(Color.WHITE);
         defensiveAIButton.setBorder(null);
+        defensiveAIButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                startGame.getAITYpe("defensive");
+                startGame.move();
+            }
+        });
         buttonPanel.add(defensiveAIButton);
 
         buttonPanel.setBorder(BorderFactory.createLineBorder(Color.black));
