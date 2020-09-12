@@ -80,8 +80,6 @@ public class ButtonPanel {
         themeButtonGroup.add(forrestTheme);
         themeButtonGroup.add(highContrastTheme);
 
-        startGame.getButton(button);
-
         randomAIButton = new JButton("Start With Random AI");
         randomAIButton.setBounds(20, 300, 280, 45);
         randomAIButton.setFont(f1);
@@ -92,6 +90,7 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 startGame.getAITYpe("random");
+                startGame.getButton(button);
                 startGame.move();
             }
         });
@@ -108,6 +107,7 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 startGame.getAITYpe("defensive");
+                startGame.getButton(button);
                 startGame.move();
             }
         });
