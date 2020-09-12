@@ -9,7 +9,6 @@ public class StartGame {
     public JButton button[][] = new JButton[3][3];
     String string;
     private String currentPlayer = "x";
-    private int moveCount=0;
     AI ai;
 
     public void getButton(JButton button[][]){
@@ -35,11 +34,9 @@ public class StartGame {
             ai.move(button);
             if(isWon()==true){
                 newBoard();
-                moveCount=0;
                 JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
             }
             else {
-                moveCount++;
                 currentPlayer="x";
             }
         }
@@ -92,17 +89,16 @@ public class StartGame {
                             playersMove(button[row][col]);
                             if(isWon()==true){
                                 newBoard();
-                                moveCount=0;
                                 JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
                             }
                             else{
                                 currentPlayer = "o";
-                                moveCount++;
-                                if (moveCount <= 8) {
+                                if (isDraw()==true) {
                                     computersMove();
                                 }
-                                if(moveCount==9){
+                                else{
                                     JOptionPane.showMessageDialog(frame, "Match Draw!");
+                                    newBoard();
                                 }
                             }
                         }
@@ -110,5 +106,17 @@ public class StartGame {
                 });
             }
         }
+    }
+
+    private boolean isDraw(){
+        boolean flag=false;
+        for (int i=0; i<3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if(button[i][j].getText()==""){
+                    flag=true;
+                }
+            }
+        }
+        return flag;
     }
 }
