@@ -11,6 +11,8 @@ public class StartGame {
     String string;
     private String currentPlayer = "x";
     AI ai;
+    GamePlay gamePlay = new GamePlay();
+    HasWinner hasWinner = new HasWinner();
 
     public void getButton(JButton button[][]){
         this.button=button;
@@ -24,39 +26,6 @@ public class StartGame {
         else {
             ai= new DefensiveAI();
         }
-    }
-
-    public void playersMove(JButton button){
-        button.setText("x");
-    }
-
-    public void computersMove(){
-        if(currentPlayer=="o") {
-            ai.move(button,moveString);
-            if(isWon()==true){
-                JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
-                newBoard();
-            }
-            else {
-                currentPlayer="x";
-            }
-        }
-    }
-
-    private boolean isWon(){
-        for(int i=0; i<3; i++){
-            if(button[i][0].getText()==currentPlayer && button[i][1].getText()==currentPlayer && button[i][2].getText()==currentPlayer){
-                return true;
-            }
-            else if(button[0][i].getText()==currentPlayer && button[1][i].getText()==currentPlayer && button[2][i].getText()==currentPlayer){
-                return true;
-            }
-        }
-        if((button[0][0].getText()==currentPlayer && button[1][1].getText()==currentPlayer && button[2][2].getText()==currentPlayer)
-                || (button[0][2].getText()==currentPlayer && button[1][1].getText()==currentPlayer && button[2][0].getText()==currentPlayer)){
-            return true;
-        }
-        return false;
     }
 
     private void newBoard(){
@@ -83,16 +52,24 @@ public class StartGame {
                 button[i][j].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (((JButton) e.getSource()).getText().equals("") && currentPlayer == "x"){
-                            playersMove(button[row][col]);
-                            if(isWon()==true){
+                        if (((JButton) e.getSource()).getText().equals("")){
+                            gamePlay.setPlayerMove(button[row][col]);
+                            moveString[row][col]="x";
+                            if(hasWinner.isWon("x",moveString)==true){
                                 JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
                                 newBoard();
                             }
                             else{
                                 currentPlayer = "o";
                                 if (isDraw()==true) {
-                                    computersMove();
+                                    gamePlay.setComputerMove(ai,button,moveString);
+                                    if(hasWinner.isWon("o",moveString)==true){
+                                        JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
+                                        newBoard();
+                                    }
+                                    else {
+                                        currentPlayer="x";
+                                    }
                                 }
                                 else{
                                     JOptionPane.showMessageDialog(frame, "Match Draw!");
