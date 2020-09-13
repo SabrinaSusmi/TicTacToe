@@ -2,7 +2,7 @@ package TicTacToe;
 
 import javax.swing.*;
 
-public class GamePlay {
+public class Move {
     void setPlayerMove(JButton button){
         button.setText("x");
     }

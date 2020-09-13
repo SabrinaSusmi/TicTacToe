@@ -15,7 +15,7 @@ public class ButtonPanel {
     private JButton randomAIButton, defensiveAIButton;
     public JButton button[][] = new JButton[3][3];
     String moveString[][]= new String[3][3];
-    StartGame startGame = new StartGame();
+    PlayGame playGame = new PlayGame();
 
     public void setButton(JButton button[][], String[][] moveString){
         this.button=button;
@@ -91,9 +91,9 @@ public class ButtonPanel {
         randomAIButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                startGame.getAITYpe("random");
-                startGame.setButton(button,moveString);
-                startGame.move();
+                playGame.getAITYpe("random");
+                playGame.setButton(button,moveString);
+                playGame.move();
             }
         });
         //randomAIButton.setBorder(new RoundedShape(10));
@@ -108,9 +108,9 @@ public class ButtonPanel {
         defensiveAIButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                startGame.getAITYpe("defensive");
-                startGame.setButton(button,moveString);
-                startGame.move();
+                playGame.getAITYpe("defensive");
+                playGame.setButton(button,moveString);
+                playGame.move();
             }
         });
         buttonPanel.add(defensiveAIButton);

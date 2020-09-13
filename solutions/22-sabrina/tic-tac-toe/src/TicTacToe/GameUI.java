@@ -43,8 +43,4 @@ public class GameUI {
         panelGame = gamePanel.drawBoardGrid(panelGame);
     }
 
-
-    public static void main(String[] args) {
-        new GameUI();
-    }
 }
