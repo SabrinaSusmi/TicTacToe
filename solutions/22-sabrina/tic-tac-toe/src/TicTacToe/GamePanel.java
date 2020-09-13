@@ -7,7 +7,7 @@ public class GamePanel {
     private JPanel panel;
     public JButton button[][] = new JButton[3][3];
 
-    public void getButton(JButton button[][]){
+    public void setButton(JButton button[][]){
         this.button=button;
     }
 

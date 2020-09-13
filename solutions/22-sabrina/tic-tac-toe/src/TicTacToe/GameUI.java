@@ -9,6 +9,7 @@ public class GameUI {
     private JPanel panelButtons = new JPanel();;
     private JPanel panelGame = new JPanel();
     public JButton button[][] = new JButton[3][3];
+    String moveString[][]= new String[3][3];
     ButtonPanel buttonPanel = new ButtonPanel();
     GamePanel gamePanel = new GamePanel();
 
@@ -36,8 +37,8 @@ public class GameUI {
     public void drawBoard(){
         BoardButtons boardButtons = new BoardButtons();
         button=boardButtons.drawButton();
-        gamePanel.getButton(button);
-        buttonPanel.getButton(button);
+        gamePanel.setButton(button);
+        buttonPanel.setButton(button,moveString);
         panelButtons = buttonPanel.drawButtonPanel(panelButtons);
         panelGame = gamePanel.drawBoardGrid(panelGame);
     }

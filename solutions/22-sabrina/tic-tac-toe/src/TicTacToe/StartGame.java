@@ -13,8 +13,9 @@ public class StartGame {
     GamePlay gamePlay = new GamePlay();
     HasWinner hasWinner = new HasWinner();
 
-    public void getButton(JButton button[][]){
+    public void setButton(JButton button[][], String[][] moveString){
         this.button=button;
+        this.moveString=moveString;
     }
 
     public void getAITYpe(String string){
