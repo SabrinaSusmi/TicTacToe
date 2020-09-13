@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 public class StartGame {
     JFrame frame = new JFrame("Winner Message");
     public JButton button[][] = new JButton[3][3];
+    String moveString[][]= new String[3][3];
     String string;
     private String currentPlayer = "x";
     AI ai;
@@ -31,7 +32,7 @@ public class StartGame {
 
     public void computersMove(){
         if(currentPlayer=="o") {
-            ai.move(button);
+            ai.move(button,moveString);
             if(isWon()==true){
                 JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
                 newBoard();

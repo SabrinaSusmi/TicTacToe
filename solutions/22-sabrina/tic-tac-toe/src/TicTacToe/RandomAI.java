@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class RandomAI implements AI{
     @Override
-    public void move(JButton button[][]) {
+    public void move(JButton[][] button, String[][] moveString) {
         int row = new Random().nextInt(3);
         int col = new Random().nextInt(3);
         while(true){
@@ -17,5 +17,6 @@ public class RandomAI implements AI{
                 break;
         }
         button[row][col].setText("o");
+        moveString[row][col]="o";
     }
 }

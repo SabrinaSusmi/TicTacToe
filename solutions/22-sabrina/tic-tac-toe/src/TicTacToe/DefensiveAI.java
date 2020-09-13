@@ -5,7 +5,7 @@ import javax.swing.*;
 public class DefensiveAI implements AI{
 
     @Override
-    public void move(JButton[][] button) {
-        
+    public void move(JButton[][] button, String[][] moveString) {
+
     }
 }
