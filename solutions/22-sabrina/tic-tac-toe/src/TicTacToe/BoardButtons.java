@@ -5,13 +5,13 @@ import java.awt.*;
 
 public class BoardButtons {
     private JButton button[][] = new JButton[3][3];
-    private Font font = new Font("Arial", Font.BOLD, 40);
+    BoardDecoration boardDecoration = new BoardDecoration();
 
     public JButton[][] drawButton() {
         for (int i=0; i<3; i++) {
             for(int j=0; j<3; j++){
                 button[i][j] = new JButton();
-                button[i][j].setFont(font);
+                button[i][j].setFont(boardDecoration.boardFont);
             }
         }
         return button;
