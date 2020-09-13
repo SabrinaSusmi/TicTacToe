@@ -33,8 +33,8 @@ public class StartGame {
         if(currentPlayer=="o") {
             ai.move(button);
             if(isWon()==true){
-                newBoard();
                 JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
+                newBoard();
             }
             else {
                 currentPlayer="x";
@@ -44,18 +44,15 @@ public class StartGame {
 
     private boolean isWon(){
         for(int i=0; i<3; i++){
-            if(button[i][0].getText()==button[i][1].getText() && button[i][1].getText()==button[i][2].getText()
-                    && (button[i][0].getText()=="x"||button[i][0].getText()=="o")){
+            if(button[i][0].getText()==currentPlayer && button[i][1].getText()==currentPlayer && button[i][2].getText()==currentPlayer){
                 return true;
             }
-            else if(button[0][i].getText()==button[1][i].getText() && button[1][i].getText()==button[2][i].getText()
-                    && (button[0][i].getText()=="x"||button[0][i].getText()=="o")){
+            else if(button[0][i].getText()==currentPlayer && button[1][i].getText()==currentPlayer && button[2][i].getText()==currentPlayer){
                 return true;
             }
         }
-        if((button[0][0].getText()==button[1][1].getText() && button[1][1].getText()==button[2][2].getText())
-                || (button[0][2].getText()==button[1][1].getText() && button[1][1].getText()==button[2][0].getText())
-                && (button[1][1].getText()=="x"||button[1][1].getText()=="o")){
+        if((button[0][0].getText()==currentPlayer && button[1][1].getText()==currentPlayer && button[2][2].getText()==currentPlayer)
+                || (button[0][2].getText()==currentPlayer && button[1][1].getText()==currentPlayer && button[2][0].getText()==currentPlayer)){
             return true;
         }
         return false;
@@ -88,8 +85,8 @@ public class StartGame {
                         if (((JButton) e.getSource()).getText().equals("") && currentPlayer == "x"){
                             playersMove(button[row][col]);
                             if(isWon()==true){
-                                newBoard();
                                 JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
+                                newBoard();
                             }
                             else{
                                 currentPlayer = "o";
