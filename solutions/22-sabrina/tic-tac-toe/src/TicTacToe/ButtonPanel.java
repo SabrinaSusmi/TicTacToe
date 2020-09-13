@@ -92,7 +92,7 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 startGame.getAITYpe("random");
-                startGame.setButton(button,);
+                startGame.setButton(button,moveString);
                 startGame.move();
             }
         });
@@ -109,7 +109,7 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 startGame.getAITYpe("defensive");
-                startGame.setButton(button);
+                startGame.setButton(button,moveString);
                 startGame.move();
             }
         });

@@ -37,7 +37,7 @@ public class GameUI {
     public void drawBoard(){
         BoardButtons boardButtons = new BoardButtons();
         button=boardButtons.drawButton();
-        gamePanel.setButton(button);
+        //gamePanel.setButton(button);
         buttonPanel.setButton(button,moveString);
         panelButtons = buttonPanel.drawButtonPanel(panelButtons);
         panelGame = gamePanel.drawBoardGrid(panelGame);
