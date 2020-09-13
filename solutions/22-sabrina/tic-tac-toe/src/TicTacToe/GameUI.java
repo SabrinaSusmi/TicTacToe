@@ -4,17 +4,19 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameUI {
-    private JFrame frame;
-    private JPanel containerPanel,panelButtons,panelGame;
+    private JFrame frame = new JFrame();
+    private JPanel containerPanel = new JPanel();
+    private JPanel panelButtons = new JPanel();;
+    private JPanel panelGame = new JPanel();
     public JButton button[][] = new JButton[3][3];
+    ButtonPanel buttonPanel = new ButtonPanel();
+    GamePanel gamePanel = new GamePanel();
 
     public GameUI() {
         designBoard();
     }
 
     private void designBoard() {
-        frame = new JFrame();
-        containerPanel = new JPanel();
 
         drawBoard();
 
@@ -32,14 +34,10 @@ public class GameUI {
     }
 
     public void drawBoard(){
-        ButtonPanel buttonPanel = new ButtonPanel();
-        GamePanel gamePanel = new GamePanel();
         BoardButtons boardButtons = new BoardButtons();
         button=boardButtons.drawButton();
         gamePanel.getButton(button);
         buttonPanel.getButton(button);
-        panelGame = new JPanel();
-        panelButtons = new JPanel();
         panelButtons = buttonPanel.drawButtonPanel(panelButtons);
         panelGame = gamePanel.drawBoardGrid(panelGame);
     }
