@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StartGame {
-    JFrame frame = new JFrame("Winner Message");
     public JButton button[][] = new JButton[3][3];
     String moveString[][]= new String[3][3];
     String string;
@@ -37,14 +36,6 @@ public class StartGame {
     }
 
     public void move(){
-
-        frame.setAlwaysOnTop(true);
-        frame.setResizable(false);
-        frame.setSize(300,150);
-        frame.setVisible(false);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
         for (int i=0; i<3; i++) {
             for (int j = 0; j < 3; j++) {
                 int row = i;
@@ -56,7 +47,7 @@ public class StartGame {
                             gamePlay.setPlayerMove(button[row][col]);
                             moveString[row][col]="x";
                             if(hasWinner.isWon("x",moveString)==true){
-                                JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
+                                winnerMessage(currentPlayer);
                                 newBoard();
                             }
                             else{
@@ -64,7 +55,7 @@ public class StartGame {
                                 if (isDraw()==true) {
                                     gamePlay.setComputerMove(ai,button,moveString);
                                     if(hasWinner.isWon("o",moveString)==true){
-                                        JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
+                                        winnerMessage(currentPlayer);
                                         newBoard();
                                     }
                                     else {
@@ -72,7 +63,7 @@ public class StartGame {
                                     }
                                 }
                                 else{
-                                    JOptionPane.showMessageDialog(frame, "Match Draw!");
+                                    winnerMessage("draw");
                                     newBoard();
                                 }
                             }
@@ -93,5 +84,23 @@ public class StartGame {
             }
         }
         return flag;
+    }
+
+    private void winnerMessage(String currentPlayer){
+        JFrame frame = new JFrame("Winner Message");
+        frame.setAlwaysOnTop(true);
+        frame.setResizable(false);
+        frame.setVisible(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        if(currentPlayer=="x"){
+            JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
+        }
+        else if(currentPlayer=="o"){
+            JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
+        }
+        else{
+            JOptionPane.showMessageDialog(frame, "Match Draw!");
+        }
     }
 }
