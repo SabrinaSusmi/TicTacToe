@@ -20,7 +20,7 @@ public class ButtonPanel {
     }
 
     public JPanel drawButtonPanel(JPanel buttonPanel){
-        this.buttonPanel = buttonPanel;
+        //this.buttonPanel = buttonPanel;
         themeButtonGroup = new ButtonGroup();
 
         buttonPanel.setLayout(null);
