@@ -13,12 +13,10 @@ public class ButtonPanel {
     private JButton randomAIButton, defensiveAIButton;
     BoardDecoration boardDecoration = new BoardDecoration();
     public JButton button[][] = new JButton[3][3];
-    String moveString[][]= new String[3][3];
     PlayGame playGame = new PlayGame();
 
-    public void setButton(JButton button[][], String[][] moveString){
+    public void setButton(JButton button[][]){
         this.button=button;
-        this.moveString=moveString;
     }
 
     public JPanel drawButtonPanel(JPanel buttonPanel){
@@ -87,7 +85,7 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 playGame.getAITYpe("random");
-                playGame.setButton(button,moveString);
+                playGame.setButton(button);
                 playGame.move();
             }
         });
@@ -104,7 +102,7 @@ public class ButtonPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 playGame.getAITYpe("defensive");
-                playGame.setButton(button,moveString);
+                playGame.setButton(button);
                 playGame.move();
             }
         });
