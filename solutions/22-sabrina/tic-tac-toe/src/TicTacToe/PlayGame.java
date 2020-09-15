@@ -7,18 +7,17 @@ import java.awt.event.ActionListener;
 public class PlayGame {
     public JButton button[][] = new JButton[3][3];
     String moveString[][]= new String[3][3];
-    String string;
     private String currentPlayer = "x";
     AI ai;
     Move move = new Move();
     HasWinner hasWinner = new HasWinner();
+    int moveCount=0;
 
     public void setButton(JButton button[][]){
         this.button=button;
     }
 
     public void getAITYpe(String string){
-        this.string=string;
         if(string=="random"){
             ai = new RandomAI();
         }
@@ -37,33 +36,36 @@ public class PlayGame {
     }
 
     public void move(){
-        for (int i=0; i<3; i++) {
+        newBoard();
+        for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 int row = i;
                 int col = j;
                 button[i][j].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if (((JButton) e.getSource()).getText().equals("")){
+                        if (((JButton) e.getSource()).getText().equals("")) {
                             move.setPlayerMove(button[row][col]);
-                            moveString[row][col]="x";
-                            if(hasWinner.isWon("x",moveString)==true){
+                            moveCount++;
+                            moveString[row][col] = "x";
+                            if (hasWinner.isWon("x", moveString) == true) {
+                                moveCount=0;
                                 winnerMessage(currentPlayer);
                                 newBoard();
-                            }
-                            else{
+                            } else {
                                 currentPlayer = "o";
                                 if (isDraw()==true) {
-                                    move.setComputerMove(ai,button,moveString);
-                                    if(hasWinner.isWon("o",moveString)==true){
+                                    move.setComputerMove(ai, button, moveString);
+                                    moveCount++;
+                                    if (hasWinner.isWon("o", moveString) == true) {
+                                        moveCount=0;
                                         winnerMessage(currentPlayer);
                                         newBoard();
+                                    } else {
+                                        currentPlayer = "x";
                                     }
-                                    else {
-                                        currentPlayer="x";
-                                    }
-                                }
-                                else{
+                                } else {
+                                    moveCount=0;
                                     winnerMessage("draw");
                                     newBoard();
                                 }
