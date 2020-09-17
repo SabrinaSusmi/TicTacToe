@@ -10,6 +10,7 @@ public class PlayGame {
     AI ai;
     Move move = new Move();
     HasWinner hasWinner = new HasWinner();
+    WinnerMessage winnerMessage = new WinnerMessage();
     int moveCount=0;
 
     public void setButton(JButton button[][]){
@@ -49,7 +50,7 @@ public class PlayGame {
                                 moveCount++;
                                 if (hasWinner.isWon("x", moveString) == true){
                                     moveCount=0;
-                                    winnerMessage("x");
+                                    winnerMessage.displayWinnerDialogueBox("Player X wins!");
                                     newBoard();
                                 }
                                 if(moveCount>=1){
@@ -58,12 +59,12 @@ public class PlayGame {
                                 }
                                 if (hasWinner.isWon("o", moveString) == true){
                                     moveCount=0;
-                                    winnerMessage("o");
+                                    winnerMessage.displayWinnerDialogueBox("Player O wins!");
                                     newBoard();
                                 }
                                 if(moveCount==9){
                                     moveCount=0;
-                                    winnerMessage("draw");
+                                    winnerMessage.displayWinnerDialogueBox("Match Draw!");
                                     newBoard();
                                 }
 
@@ -72,24 +73,6 @@ public class PlayGame {
                     }
                 });
             }
-        }
-    }
-
-    private void winnerMessage(String currentPlayer){
-        JFrame frame = new JFrame("Winner Message");
-        frame.setAlwaysOnTop(true);
-        frame.setResizable(false);
-        frame.setVisible(false);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        if(currentPlayer=="x"){
-            JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
-        }
-        else if(currentPlayer=="o"){
-            JOptionPane.showMessageDialog(frame,"Player "+currentPlayer+" wins!");
-        }
-        else{
-            JOptionPane.showMessageDialog(frame, "Match Draw!");
         }
     }
 }
