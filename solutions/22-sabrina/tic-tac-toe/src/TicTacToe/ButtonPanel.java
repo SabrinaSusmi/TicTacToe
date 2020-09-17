@@ -113,12 +113,12 @@ public class ButtonPanel {
             if(e.getSource()==defensiveAIButton){
                 ai = new DefensiveAI();
                 playGame.setAITYpe(ai);
-                playGame.move();
+                //playGame.move();
             }
             if(e.getSource()==randomAIButton){
                 ai = new RandomAI();
                 playGame.setAITYpe(ai);
-                playGame.move();
+                //playGame.move();
             }
         }
     };

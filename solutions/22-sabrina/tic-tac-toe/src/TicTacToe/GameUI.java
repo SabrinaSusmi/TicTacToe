@@ -21,7 +21,7 @@ public class GameUI {
         panelButtons = new JPanel();
 
         buttonPanel = new ButtonPanel(buttonArray,panelGame,moveString);
-        gamePanel = new GamePanel(buttonArray,panelButtons);
+        gamePanel = new GamePanel(buttonArray,panelButtons,moveString);
 
         panelGame = gamePanel.drawBoardGrid();
         panelButtons = buttonPanel.drawButtonPanel();
