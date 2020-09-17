@@ -20,9 +20,6 @@ public class GameUI {
         panelGame = new JPanel();
         panelButtons = new JPanel();
 
-        BoardButtons boardButtons = new BoardButtons();
-        buttonArray =boardButtons.drawButton();
-
         buttonPanel = new ButtonPanel(buttonArray,panelGame,moveString);
         gamePanel = new GamePanel(buttonArray,panelButtons);
 
