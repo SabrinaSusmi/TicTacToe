@@ -4,14 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel {
-    public JButton button[][] = new JButton[3][3];
+    private JButton[][] button;
+    private JPanel panel;
     BoardDecoration boardDecoration = new BoardDecoration();
 
-    public void setButton(JButton button[][]){
+    public GamePanel(JButton button[][], JPanel panel){
         this.button=button;
+        this.panel=panel;
     }
 
-    public JPanel drawBoardGrid(JPanel panel){
+    public JPanel drawBoardGrid(){
 
         panel.setLayout(new GridLayout(3,3));
         for (int i=0; i<3; i++) {

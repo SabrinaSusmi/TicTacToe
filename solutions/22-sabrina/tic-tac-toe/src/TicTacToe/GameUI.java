@@ -7,32 +7,36 @@ public class GameUI {
     private JFrame frame = new JFrame();
     private JPanel containerPanel = new JPanel();
     private JPanel panelButtons,panelGame;
-    public JButton button[][] = new JButton[3][3];
-    ButtonPanel buttonPanel = new ButtonPanel();
-    GamePanel gamePanel = new GamePanel();
+    public JButton buttonArray[][] = new JButton[3][3];
+    ButtonPanel buttonPanel;
+    GamePanel gamePanel;
 
     public GameUI() {
-        designBoard();
+        createFrame();
     }
 
-    private void designBoard() {
-
-        ButtonPanel buttonPanel = new ButtonPanel();
-        GamePanel gamePanel = new GamePanel();
-        BoardButtons boardButtons = new BoardButtons();
-        button=boardButtons.drawButton();
-        gamePanel.setButton(button);
-        buttonPanel.setButton(button);
+    private JPanel designBoard() {
         panelGame = new JPanel();
         panelButtons = new JPanel();
-        panelButtons = buttonPanel.drawButtonPanel(panelButtons);
-        panelGame = gamePanel.drawBoardGrid(panelGame);
+
+        BoardButtons boardButtons = new BoardButtons();
+        buttonArray =boardButtons.drawButton();
+        
+        buttonPanel = new ButtonPanel(buttonArray,panelGame);
+        gamePanel = new GamePanel(buttonArray,panelButtons);
+
+        panelGame = gamePanel.drawBoardGrid();
+        panelButtons = buttonPanel.drawButtonPanel();
 
         containerPanel.setLayout(new GridLayout(1,2));
         containerPanel.add(panelGame);
         containerPanel.add(panelButtons);
 
-        frame.add(containerPanel);
+        return containerPanel;
+    }
+
+    private void createFrame(){
+        frame.add(designBoard());
         frame.setAlwaysOnTop(true);
         frame.setResizable(false);
         frame.setSize(1000,500);
@@ -40,5 +44,4 @@ public class GameUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Tic Tac Toe");
     }
-
 }

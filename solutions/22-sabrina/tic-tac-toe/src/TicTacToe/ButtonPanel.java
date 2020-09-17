@@ -6,29 +6,30 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ButtonPanel {
-    private JPanel buttonPanel;
+    private JPanel panel;
     private JLabel theme;
     private JRadioButton classicTheme, forrestTheme, highContrastTheme;
     private ButtonGroup themeButtonGroup;
     private JButton randomAIButton, defensiveAIButton;
     BoardDecoration boardDecoration = new BoardDecoration();
-    public JButton button[][] = new JButton[3][3];
+    public JButton[][] button;
     PlayGame playGame = new PlayGame();
 
-    public void setButton(JButton button[][]){
+    public ButtonPanel(JButton button[][], JPanel panel){
         this.button=button;
+        this.panel=panel;
     }
 
-    public JPanel drawButtonPanel(JPanel buttonPanel){
+    public JPanel drawButtonPanel(){
         //this.buttonPanel = buttonPanel;
         themeButtonGroup = new ButtonGroup();
 
-        buttonPanel.setLayout(null);
+        panel.setLayout(null);
 
         theme = new JLabel("Theme");
         theme.setBounds(20, 50, 150, 50);
         theme.setFont(boardDecoration.buttonFont);
-        buttonPanel.add(theme);
+        panel.add(theme);
 
         setTheme("classic");
 
@@ -37,7 +38,7 @@ public class ButtonPanel {
         classicTheme.setBackground(Color.WHITE);
         classicTheme.setFont(boardDecoration.labelFont);
         classicTheme.setSelected(true);
-        buttonPanel.add(classicTheme);
+        panel.add(classicTheme);
         classicTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -49,7 +50,7 @@ public class ButtonPanel {
         forrestTheme.setBounds(20,130,150,50);
         forrestTheme.setBackground(Color.WHITE);
         forrestTheme.setFont(boardDecoration.labelFont);
-        buttonPanel.add(forrestTheme);
+        panel.add(forrestTheme);
         forrestTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,7 +69,7 @@ public class ButtonPanel {
                 setTheme("highContrast");
             }
         });
-        buttonPanel.add(highContrastTheme);
+        panel.add(highContrastTheme);
 
 
         themeButtonGroup.add(classicTheme);
@@ -90,7 +91,7 @@ public class ButtonPanel {
             }
         });
         //randomAIButton.setBorder(new RoundedShape(10));
-        buttonPanel.add(randomAIButton);
+        panel.add(randomAIButton);
 
         defensiveAIButton = new JButton("Start With Defensive AI");
         defensiveAIButton.setBounds(20, 360, 280, 45);
@@ -106,12 +107,12 @@ public class ButtonPanel {
                 playGame.move();
             }
         });
-        buttonPanel.add(defensiveAIButton);
+        panel.add(defensiveAIButton);
 
-        buttonPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-        buttonPanel.setBackground(Color.WHITE);
+        panel.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.setBackground(Color.WHITE);
 
-        return buttonPanel;
+        return panel;
     }
 
     public void setTheme(String themeName){
