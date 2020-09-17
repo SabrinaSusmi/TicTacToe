@@ -15,7 +15,7 @@ public class UnitTest {
         strings[0][1]="x";
         strings[2][0]="o";
         strings[0][2]="x";
-        won = hasWinner.isWon("x",strings);
+        won = hasWinner.isWon(strings);
         Assertions.assertTrue(won);
     }
 }
