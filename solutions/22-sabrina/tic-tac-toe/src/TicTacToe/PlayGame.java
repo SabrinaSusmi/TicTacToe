@@ -5,29 +5,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PlayGame {
-    public JButton button[][] = new JButton[3][3];
-    String moveString[][]= new String[3][3];
+    private JButton[][] button;
+    private String[][] moveString;
     AI ai;
     Move move = new Move();
     HasWinner hasWinner = new HasWinner();
     WinnerMessage winnerMessage = new WinnerMessage();
+    RefreshBoard refreshBoard = new RefreshBoard();
     int moveCount=0;
 
-    public PlayGame(JButton button[][]){
+    public PlayGame(JButton[][] button, String[][] moveString){
         this.button=button;
+        this.moveString=moveString;
     }
 
     public void setAITYpe(AI ai){
         this.ai = ai;
-    }
-
-    private void newBoard(){
-        for (int i=0; i<3; i++) {
-            for (int j = 0; j < 3; j++) {
-                button[i][j].setText("");
-                moveString[i][j]="";
-            }
-        }
     }
 
     public void move(){
@@ -46,7 +39,7 @@ public class PlayGame {
                                 if (hasWinner.isWon("x", moveString) == true){
                                     moveCount=0;
                                     winnerMessage.displayWinnerDialogueBox("Player X wins!");
-                                    newBoard();
+                                    refreshBoard.refreshBoard(button,moveString);
                                 }
                                 if(moveCount>=1){
                                     move.setComputerMove(ai, button, moveString);
@@ -55,12 +48,12 @@ public class PlayGame {
                                 if (hasWinner.isWon("o", moveString) == true){
                                     moveCount=0;
                                     winnerMessage.displayWinnerDialogueBox("Player O wins!");
-                                    newBoard();
+                                    refreshBoard.refreshBoard(button,moveString);
                                 }
                                 if(moveCount==9){
                                     moveCount=0;
                                     winnerMessage.displayWinnerDialogueBox("Match Draw!");
-                                    newBoard();
+                                    refreshBoard.refreshBoard(button,moveString);
                                 }
 
                             }
