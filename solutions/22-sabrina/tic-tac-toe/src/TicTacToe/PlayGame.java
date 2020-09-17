@@ -13,17 +13,12 @@ public class PlayGame {
     WinnerMessage winnerMessage = new WinnerMessage();
     int moveCount=0;
 
-    public void setButton(JButton button[][]){
+    public PlayGame(JButton button[][]){
         this.button=button;
     }
 
-    public void getAITYpe(String string){
-        if(string=="random"){
-            ai = new RandomAI();
-        }
-        else {
-            ai= new DefensiveAI();
-        }
+    public void setAITYpe(AI ai){
+        this.ai = ai;
     }
 
     private void newBoard(){

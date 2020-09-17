@@ -13,11 +13,13 @@ public class ButtonPanel {
     private JButton randomAIButton, defensiveAIButton;
     BoardDecoration boardDecoration = new BoardDecoration();
     public JButton[][] button;
-    PlayGame playGame = new PlayGame();
+    AI ai;
+    PlayGame playGame;
 
     public ButtonPanel(JButton button[][], JPanel panel){
         this.button=button;
         this.panel=panel;
+        playGame = new PlayGame(button);
     }
 
     public JPanel drawButtonPanel(){
@@ -82,14 +84,7 @@ public class ButtonPanel {
         randomAIButton.setBackground(Color.darkGray);
         randomAIButton.setForeground(Color.WHITE);
         randomAIButton.setBorder(null);
-        randomAIButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                playGame.getAITYpe("random");
-                playGame.setButton(button);
-                playGame.move();
-            }
-        });
+        randomAIButton.addActionListener(selectAI);
         //randomAIButton.setBorder(new RoundedShape(10));
         panel.add(randomAIButton);
 
@@ -99,14 +94,7 @@ public class ButtonPanel {
         defensiveAIButton.setBackground(Color.darkGray);
         defensiveAIButton.setForeground(Color.WHITE);
         defensiveAIButton.setBorder(null);
-        defensiveAIButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                playGame.getAITYpe("defensive");
-                playGame.setButton(button);
-                playGame.move();
-            }
-        });
+        defensiveAIButton.addActionListener(selectAI);
         panel.add(defensiveAIButton);
 
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -114,6 +102,22 @@ public class ButtonPanel {
 
         return panel;
     }
+
+    private ActionListener selectAI = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource()==defensiveAIButton){
+                ai = new DefensiveAI();
+                playGame.setAITYpe(ai);
+                playGame.move();
+            }
+            if(e.getSource()==randomAIButton){
+                ai = new RandomAI();
+                playGame.setAITYpe(ai);
+                playGame.move();
+            }
+        }
+    };
 
     public void setTheme(String themeName){
         Theme theme;
