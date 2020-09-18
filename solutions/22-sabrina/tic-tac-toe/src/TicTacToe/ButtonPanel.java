@@ -12,24 +12,21 @@ public class ButtonPanel {
     private ButtonGroup themeButtonGroup;
     private JButton randomAIButton, defensiveAIButton;
     BoardDecoration boardDecoration = new BoardDecoration();
-    public JButton[][] button;
+    public JButton[][] buttonArray;
     public String[][] moveString;
     AI ai;
-    PlayGame playGame;
+    SwitchTheme switchTheme = new SwitchTheme();
     RefreshBoard refreshBoard = new RefreshBoard();
     SelectAI selectAi;
 
-    public ButtonPanel(JButton button[][], JPanel panel, String[][] moveString, SelectAI selectAi){
-        this.button=button;
+    public ButtonPanel(JButton buttonArray[][], JPanel panel, String[][] moveString, SelectAI selectAi){
+        this.buttonArray = buttonArray;
         this.panel=panel;
         this.moveString=moveString;
-//        this.ai=ai;
         this.selectAi=selectAi;
-        //playGame = new PlayGame(button,moveString);
     }
 
     public JPanel drawButtonPanel(){
-        //this.buttonPanel = buttonPanel;
         themeButtonGroup = new ButtonGroup();
 
         panel.setLayout(null);
@@ -39,7 +36,7 @@ public class ButtonPanel {
         theme.setFont(boardDecoration.buttonFont);
         panel.add(theme);
 
-        setTheme("classic");
+        switchTheme.setTheme("classic", buttonArray);
 
         classicTheme = new JRadioButton("Classic");
         classicTheme.setBounds(20, 90, 150, 50);
@@ -50,7 +47,7 @@ public class ButtonPanel {
         classicTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTheme("classic");
+                switchTheme.setTheme("classic",buttonArray);
             }
         });
 
@@ -62,7 +59,7 @@ public class ButtonPanel {
         forrestTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTheme("forest");
+                switchTheme.setTheme("forest",buttonArray);
             }
         });
 
@@ -74,7 +71,7 @@ public class ButtonPanel {
         highContrastTheme.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                setTheme("highContrast");
+                switchTheme.setTheme("highContrast",buttonArray);
             }
         });
         panel.add(highContrastTheme);
@@ -91,7 +88,6 @@ public class ButtonPanel {
         randomAIButton.setForeground(Color.WHITE);
         randomAIButton.setBorder(null);
         randomAIButton.addActionListener(selectAI);
-        //randomAIButton.setBorder(new RoundedShape(10));
         panel.add(randomAIButton);
 
         defensiveAIButton = new JButton("Start With Defensive AI");
@@ -112,38 +108,15 @@ public class ButtonPanel {
     private ActionListener selectAI = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            refreshBoard.refreshBoard(button,moveString);
+            refreshBoard.refreshBoard(buttonArray,moveString);
             if(e.getSource()==defensiveAIButton){
                 ai = new DefensiveAI();
                 selectAi.setAI(ai);
-                //playGame.setAITYpe(ai);
-                //playGame.move();
             }
             if(e.getSource()==randomAIButton){
                 ai = new RandomAI();
                 selectAi.setAI(ai);
-                //playGame.setAITYpe(ai);
-                //playGame.move();
             }
         }
     };
-
-    public void setTheme(String themeName){
-        Theme theme;
-        if(themeName=="forest"){
-            theme=new ForestTheme();
-            theme.getButton(button);
-            theme.drawTheme();
-        }
-        else if(themeName=="classic") {
-            theme = new ClassicTheme();
-            theme.getButton(button);
-            theme.drawTheme();
-        }
-        else if(themeName=="highContrast"){
-            theme = new HighContrastTheme();
-            theme.getButton(button);
-            theme.drawTheme();
-        }
-    }
 }
