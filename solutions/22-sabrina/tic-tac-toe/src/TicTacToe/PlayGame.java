@@ -35,6 +35,7 @@ public class PlayGame {
                                 moveCount = 0;
                                 winnerMessage.displayWinnerDialogueBox("Match Draw!");
                                 refreshBoard.refreshBoard(button, moveString);
+                                refreshBoard.lockBoard(button);
                             }
                             if (moveCount >= 1) {
                                 move.setComputerMove(selectAi.getAi(),button, moveString);
@@ -53,6 +54,7 @@ public class PlayGame {
             moveCount = 0;
             winnerMessage.displayWinnerDialogueBox("Player" + player + " wins!");
             refreshBoard.refreshBoard(button, moveString);
+            refreshBoard.lockBoard(button);
         }
     }
 }

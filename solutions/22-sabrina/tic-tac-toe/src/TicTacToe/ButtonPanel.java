@@ -27,6 +27,7 @@ public class ButtonPanel {
     }
 
     public JPanel drawButtonPanel(){
+        refreshBoard.lockBoard(buttonArray);
         themeButtonGroup = new ButtonGroup();
 
         panel.setLayout(null);
@@ -109,6 +110,7 @@ public class ButtonPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             refreshBoard.refreshBoard(buttonArray,moveString);
+            refreshBoard.unlockBoard(buttonArray);
             if(e.getSource()==defensiveAIButton){
                 ai = new DefensiveAI();
                 selectAi.setAI(ai);
