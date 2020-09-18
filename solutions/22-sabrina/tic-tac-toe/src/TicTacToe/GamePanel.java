@@ -52,28 +52,17 @@ public class GamePanel {
                             move.setPlayerMove(button[row][col]);
                             moveString[row][col] = "x";
                             moveCount++;
-//                            if (hasWinner.isWon(moveString) == true) {
-//                                moveCount = 0;
-//                                winnerMessage.displayWinnerDialogueBox("Player X wins!");
-//                                refreshBoard.refreshBoard(button, moveString);
-//                            }
                             checkWinner("X");
-                            if (moveCount >= 1) {
-                                move.setComputerMove(selectAi.getAi(),button, moveString);
-                                moveCount++;
-                            }
-//                            if (hasWinner.isWon(moveString) == true) {
-//                                moveCount = 0;
-//                                winnerMessage.displayWinnerDialogueBox("Player O wins!");
-//                                refreshBoard.refreshBoard(button, moveString);
-//                            }
-                            checkWinner("O");
                             if (moveCount == 9) {
                                 moveCount = 0;
                                 winnerMessage.displayWinnerDialogueBox("Match Draw!");
                                 refreshBoard.refreshBoard(button, moveString);
                             }
-
+                            if (moveCount >= 1) {
+                                move.setComputerMove(selectAi.getAi(),button, moveString);
+                                moveCount++;
+                            }
+                            checkWinner("O");
                         }
                     }
                 }
