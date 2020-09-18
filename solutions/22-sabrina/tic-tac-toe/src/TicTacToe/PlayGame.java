@@ -5,17 +5,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PlayGame {
-    private JButton[][] button;
+    private JButton[][] buttonArray;
     private String[][] moveString;
     Move move = new Move();
     HasWinner hasWinner = new HasWinner();
     WinnerMessage winnerMessage = new WinnerMessage();
-    RefreshBoard refreshBoard = new RefreshBoard();
+    ManageBoard manageBoard = new ManageBoard();
     SelectAI selectAi;
     int moveCount=0;
 
-    public PlayGame(JButton[][] button, String[][] moveString,SelectAI selectAi){
-        this.button=button;
+    public PlayGame(JButton[][] buttonArray, String[][] moveString, SelectAI selectAi){
+        this.buttonArray = buttonArray;
         this.moveString=moveString;
         this.selectAi=selectAi;
     }
@@ -25,20 +25,20 @@ public class PlayGame {
         public void actionPerformed(ActionEvent e) {
             for (int row = 0;  row< 3; row++) {
                 for (int col = 0; col< 3; col++) {
-                    if (e.getSource().equals(button[row][col])) {
-                        if (button[row][col].getText() == "") {
-                            move.setPlayerMove(button[row][col]);
+                    if (e.getSource().equals(buttonArray[row][col])) {
+                        if (buttonArray[row][col].getText() == "") {
+                            move.setPlayerMove(buttonArray[row][col]);
                             moveString[row][col] = "x";
                             moveCount++;
                             checkWinner("X");
                             if (moveCount == 9) {
                                 moveCount = 0;
                                 winnerMessage.displayWinnerDialogueBox("Match Draw!");
-                                refreshBoard.refreshBoard(button, moveString);
-                                refreshBoard.lockBoard(button);
+                                manageBoard.refreshBoard(buttonArray, moveString);
+                                manageBoard.lockBoard(buttonArray);
                             }
                             if (moveCount >= 1) {
-                                move.setComputerMove(selectAi.getAi(),button, moveString);
+                                move.setComputerMove(selectAi.getAi(), buttonArray, moveString);
                                 moveCount++;
                             }
                             checkWinner("O");
@@ -53,8 +53,8 @@ public class PlayGame {
         if (hasWinner.isWon(moveString) == true) {
             moveCount = 0;
             winnerMessage.displayWinnerDialogueBox("Player" + player + " wins!");
-            refreshBoard.refreshBoard(button, moveString);
-            refreshBoard.lockBoard(button);
+            manageBoard.refreshBoard(buttonArray, moveString);
+            manageBoard.lockBoard(buttonArray);
         }
     }
 }

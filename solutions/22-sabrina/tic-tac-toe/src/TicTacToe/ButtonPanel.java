@@ -16,7 +16,7 @@ public class ButtonPanel {
     public String[][] moveString;
     AI ai;
     SwitchTheme switchTheme = new SwitchTheme();
-    RefreshBoard refreshBoard = new RefreshBoard();
+    ManageBoard manageBoard = new ManageBoard();
     SelectAI selectAi;
 
     public ButtonPanel(JButton buttonArray[][], JPanel panel, String[][] moveString, SelectAI selectAi){
@@ -27,7 +27,7 @@ public class ButtonPanel {
     }
 
     public JPanel drawButtonPanel(){
-        refreshBoard.lockBoard(buttonArray);
+        manageBoard.lockBoard(buttonArray);
         themeButtonGroup = new ButtonGroup();
 
         panel.setLayout(null);
@@ -109,8 +109,8 @@ public class ButtonPanel {
     private ActionListener selectAI = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            refreshBoard.refreshBoard(buttonArray,moveString);
-            refreshBoard.unlockBoard(buttonArray);
+            manageBoard.refreshBoard(buttonArray,moveString);
+            manageBoard.unlockBoard(buttonArray);
             if(e.getSource()==defensiveAIButton){
                 ai = new DefensiveAI();
                 selectAi.setAI(ai);
