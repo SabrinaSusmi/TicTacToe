@@ -15,13 +15,14 @@ public class GamePanel {
     HasWinner hasWinner = new HasWinner();
     WinnerMessage winnerMessage = new WinnerMessage();
     RefreshBoard refreshBoard = new RefreshBoard();
-    SelectAI selectAi = new SelectAI();
+    SelectAI selectAi;
     int moveCount=0;
 
-    public GamePanel(JButton button[][], JPanel panel, String[][] moveString){
+    public GamePanel(JButton button[][], JPanel panel, String[][] moveString, SelectAI selectAi){
         this.button=button;
         this.panel=panel;
         this.moveString=moveString;
+        this.selectAi= selectAi;
         //playGame = new PlayGame(button,moveString);
 
     }
@@ -57,7 +58,7 @@ public class GamePanel {
                                 refreshBoard.refreshBoard(button, moveString);
                             }
                             if (moveCount >= 1) {
-                                move.setComputerMove(selectAi.getAi(), button, moveString);
+                                move.setComputerMove(selectAi.getAi(),button, moveString);
                                 moveCount++;
                             }
                             if (hasWinner.isWon(moveString) == true) {

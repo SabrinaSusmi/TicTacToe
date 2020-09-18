@@ -17,13 +17,15 @@ public class ButtonPanel {
     AI ai;
     PlayGame playGame;
     RefreshBoard refreshBoard = new RefreshBoard();
-    SelectAI selectAi = new SelectAI();
+    SelectAI selectAi;
 
-    public ButtonPanel(JButton button[][], JPanel panel, String[][] moveString){
+    public ButtonPanel(JButton button[][], JPanel panel, String[][] moveString, SelectAI selectAi){
         this.button=button;
         this.panel=panel;
         this.moveString=moveString;
-        playGame = new PlayGame(button,moveString);
+//        this.ai=ai;
+        this.selectAi=selectAi;
+        //playGame = new PlayGame(button,moveString);
     }
 
     public JPanel drawButtonPanel(){
