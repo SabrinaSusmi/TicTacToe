@@ -11,8 +11,8 @@ public class GameUI {
     public String[][] moveString = new String[3][3];
     ButtonPanel buttonPanel;
     GamePanel gamePanel;
-    AI ai;
     SelectAI selectAI = new SelectAI();
+    PlayGame playGame;
 
     public GameUI() {
         createFrame();
@@ -24,6 +24,7 @@ public class GameUI {
 
         buttonPanel = new ButtonPanel(buttonArray,panelGame,moveString,selectAI);
         gamePanel = new GamePanel(buttonArray,panelButtons,moveString,selectAI);
+        playGame = new PlayGame(buttonArray,moveString,selectAI);
 
         panelGame = gamePanel.drawBoardGrid();
         panelButtons = buttonPanel.drawButtonPanel();
