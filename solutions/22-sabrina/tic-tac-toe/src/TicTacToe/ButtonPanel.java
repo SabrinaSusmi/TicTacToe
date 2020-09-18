@@ -17,6 +17,7 @@ public class ButtonPanel {
     AI ai;
     PlayGame playGame;
     RefreshBoard refreshBoard = new RefreshBoard();
+    SelectAI selectAi = new SelectAI();
 
     public ButtonPanel(JButton button[][], JPanel panel, String[][] moveString){
         this.button=button;
@@ -112,12 +113,14 @@ public class ButtonPanel {
             refreshBoard.refreshBoard(button,moveString);
             if(e.getSource()==defensiveAIButton){
                 ai = new DefensiveAI();
-                playGame.setAITYpe(ai);
+                selectAi.setAI(ai);
+                //playGame.setAITYpe(ai);
                 //playGame.move();
             }
             if(e.getSource()==randomAIButton){
                 ai = new RandomAI();
-                playGame.setAITYpe(ai);
+                selectAi.setAI(ai);
+                //playGame.setAITYpe(ai);
                 //playGame.move();
             }
         }
