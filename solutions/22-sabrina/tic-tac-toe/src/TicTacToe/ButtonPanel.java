@@ -84,26 +84,25 @@ public class ButtonPanel {
 
         randomAIButton = new JButton("Start With Random AI");
         randomAIButton.setBounds(20, 300, 280, 45);
-        randomAIButton.setFont(boardDecoration.buttonFont);
-        randomAIButton.setBackground(Color.darkGray);
-        randomAIButton.setForeground(Color.WHITE);
-        randomAIButton.setBorder(null);
-        randomAIButton.addActionListener(selectAI);
-        panel.add(randomAIButton);
+        addAIButton(randomAIButton);
 
         defensiveAIButton = new JButton("Start With Defensive AI");
         defensiveAIButton.setBounds(20, 360, 280, 45);
-        defensiveAIButton.setFont(boardDecoration.buttonFont);
-        defensiveAIButton.setBackground(Color.darkGray);
-        defensiveAIButton.setForeground(Color.WHITE);
-        defensiveAIButton.setBorder(null);
-        defensiveAIButton.addActionListener(selectAI);
-        panel.add(defensiveAIButton);
+        addAIButton(defensiveAIButton);
 
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
         panel.setBackground(Color.WHITE);
 
         return panel;
+    }
+
+    private void addAIButton(JButton button){
+        button.setFont(boardDecoration.buttonFont);
+        button.setBackground(Color.darkGray);
+        button.setForeground(Color.WHITE);
+        button.setBorder(null);
+        button.addActionListener(selectAI);
+        panel.add(button);
     }
 
     private ActionListener selectAI = new ActionListener() {
