@@ -28,9 +28,10 @@ public class ButtonPanel {
 
     public JPanel drawButtonPanel(){
         manageBoard.lockBoard(buttonArray);
-        themeButtonGroup = new ButtonGroup();
 
         panel.setLayout(null);
+        panel.setBorder(BorderFactory.createLineBorder(Color.black));
+        panel.setBackground(Color.WHITE);
 
         theme = new JLabel("Theme");
         theme.setBounds(20, 50, 150, 50);
@@ -39,6 +40,21 @@ public class ButtonPanel {
 
         switchTheme.setTheme("classic", buttonArray);
 
+        createThemeButtonGroup();
+
+        randomAIButton = new JButton("Start With Random AI");
+        randomAIButton.setBounds(20, 300, 280, 45);
+        addAIButton(randomAIButton);
+
+        defensiveAIButton = new JButton("Start With Defensive AI");
+        defensiveAIButton.setBounds(20, 360, 280, 45);
+        addAIButton(defensiveAIButton);
+
+        return panel;
+    }
+
+    private void createThemeButtonGroup(){
+        themeButtonGroup = new ButtonGroup();
         classicTheme = new JRadioButton("Classic");
         classicTheme.setBounds(20, 90, 150, 50);
         classicTheme.setBackground(Color.WHITE);
@@ -81,19 +97,6 @@ public class ButtonPanel {
         themeButtonGroup.add(classicTheme);
         themeButtonGroup.add(forrestTheme);
         themeButtonGroup.add(highContrastTheme);
-
-        randomAIButton = new JButton("Start With Random AI");
-        randomAIButton.setBounds(20, 300, 280, 45);
-        addAIButton(randomAIButton);
-
-        defensiveAIButton = new JButton("Start With Defensive AI");
-        defensiveAIButton.setBounds(20, 360, 280, 45);
-        addAIButton(defensiveAIButton);
-
-        panel.setBorder(BorderFactory.createLineBorder(Color.black));
-        panel.setBackground(Color.WHITE);
-
-        return panel;
     }
 
     private void addAIButton(JButton button){
