@@ -72,10 +72,19 @@ public class DefensiveMoveChecker {
     }
 
     public boolean canBeDefended(){
-        boolean flag=false;
-        if(checkDefenseRow()||checkDefenseColumn()||checkDefenseFirstDiagonal()||checkDefenseSecondDiagonal()){
-            flag=true;
+        if(checkDefenseRow()){
+            checkDefenseRow();
+            return true;
+        } else if(checkDefenseColumn()){
+            checkDefenseColumn();
+            return true;
+        } else if(checkDefenseFirstDiagonal()){
+            checkDefenseFirstDiagonal();
+            return true;
+        } else if(checkDefenseSecondDiagonal()){
+            checkDefenseSecondDiagonal();
+            return true;
         }
-        return true;
+        return false;
     }
 }
