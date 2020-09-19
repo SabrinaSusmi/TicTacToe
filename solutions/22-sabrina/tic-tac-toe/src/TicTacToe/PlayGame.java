@@ -30,18 +30,19 @@ public class PlayGame {
                             move.setPlayerMove(buttonArray[row][col]);
                             moveString[row][col] = "x";
                             moveCount++;
-                            checkWinner("X");
+                            if (hasWinner.isWon(moveString) == true){
+                                gameOver("X");
+                            }
                             if (moveCount == 9) {
-                                moveCount = 0;
-                                winnerMessage.displayWinnerDialogueBox("Match Draw!");
-                                manageBoard.refreshBoard(buttonArray, moveString);
-                                manageBoard.lockBoard(buttonArray);
+                                gameOver(null);
                             }
                             if (moveCount >= 1) {
                                 move.setComputerMove(selectAi.getAi(), buttonArray, moveString);
                                 moveCount++;
                             }
-                            checkWinner("O");
+                            if (hasWinner.isWon(moveString) == true){
+                                gameOver("O");
+                            }
                         }
                     }
                 }
@@ -49,12 +50,15 @@ public class PlayGame {
         }
     } ;
 
-    private void checkWinner(String player){
-        if (hasWinner.isWon(moveString) == true) {
-            moveCount = 0;
+    private void gameOver(String player){
+        if(player.equals(null)){
+            winnerMessage.displayWinnerDialogueBox("Match Draw!");
+        } else {
             winnerMessage.displayWinnerDialogueBox("Player" + player + " wins!");
-            manageBoard.refreshBoard(buttonArray, moveString);
-            manageBoard.lockBoard(buttonArray);
         }
+        
+        moveCount = 0;
+        manageBoard.refreshBoard(buttonArray, moveString);
+        manageBoard.lockBoard(buttonArray);
     }
 }
