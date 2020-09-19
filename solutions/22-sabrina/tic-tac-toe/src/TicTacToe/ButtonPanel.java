@@ -53,29 +53,18 @@ public class ButtonPanel {
 
     private void createThemeButtonGroup(){
         themeButtonGroup = new ButtonGroup();
+        
         classicTheme = new JRadioButton("Classic");
         classicTheme.setBounds(20, 90, 150, 50);
-        classicTheme.setBackground(Color.WHITE);
-        classicTheme.setFont(boardDecoration.labelFont);
-        classicTheme.setSelected(true);
-        panel.add(classicTheme);
-        classicTheme.addActionListener(radioButtonListener);
+        addThemeButton(classicTheme);
 
         forrestTheme = new JRadioButton("Forest");
         forrestTheme.setBounds(20,130,150,50);
-        forrestTheme.setBackground(Color.WHITE);
-        forrestTheme.setFont(boardDecoration.labelFont);
-        panel.add(forrestTheme);
-        forrestTheme.addActionListener(radioButtonListener);
+        addThemeButton(forrestTheme);
 
         highContrastTheme = new JRadioButton("High Contrast");
         highContrastTheme.setBounds(20, 170,170,50);
-        highContrastTheme.setBackground(Color.WHITE);
-        highContrastTheme.setFont(boardDecoration.labelFont);
-
-        highContrastTheme.addActionListener(radioButtonListener);
-        panel.add(highContrastTheme);
-
+        addThemeButton(highContrastTheme);
 
         themeButtonGroup.add(classicTheme);
         themeButtonGroup.add(forrestTheme);
@@ -89,6 +78,13 @@ public class ButtonPanel {
         button.setBorder(null);
         button.addActionListener(aiButtonListener);
         panel.add(button);
+    }
+
+    private void addThemeButton(JRadioButton radioButton){
+        radioButton.setBackground(Color.WHITE);
+        radioButton.setFont(boardDecoration.labelFont);
+        radioButton.addActionListener(radioButtonListener);
+        panel.add(radioButton);
     }
 
     private ActionListener radioButtonListener = new ActionListener() {
