@@ -39,7 +39,12 @@ public class ButtonPanel {
         switchTheme.setTheme("classic", buttonArray);
 
         createThemeButtonGroup();
+        createAIButtons();
 
+        return panel;
+    }
+
+    private void createAIButtons(){
         randomAIButton = new JButton("Start With Random AI");
         randomAIButton.setBounds(20, 300, 280, 45);
         addAIButton(randomAIButton);
@@ -47,13 +52,11 @@ public class ButtonPanel {
         defensiveAIButton = new JButton("Start With Defensive AI");
         defensiveAIButton.setBounds(20, 360, 280, 45);
         addAIButton(defensiveAIButton);
-
-        return panel;
     }
 
     private void createThemeButtonGroup(){
         themeButtonGroup = new ButtonGroup();
-        
+
         classicTheme = new JRadioButton("Classic");
         classicTheme.setBounds(20, 90, 150, 50);
         addThemeButton(classicTheme);
