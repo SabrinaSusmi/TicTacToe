@@ -9,13 +9,13 @@ public class GamePanel {
     BoardDecoration boardDecoration = new BoardDecoration();
     PlayGame playGame;
     SelectAI selectAi;
+    ManageBoard manageBoard = new ManageBoard();
 
     public GamePanel(JButton buttonArray[][], JPanel panel, String[][] moveString, SelectAI selectAi){
         this.buttonArray = buttonArray;
         this.panel=panel;
         this.selectAi= selectAi;
         playGame = new PlayGame(buttonArray,moveString,selectAi);
-
     }
 
     public JPanel drawBoardGrid(){
@@ -29,6 +29,7 @@ public class GamePanel {
                 panel.add(buttonArray[i][j]);
             }
         }
+        manageBoard.lockBoard(buttonArray);
 
         return panel;
     }

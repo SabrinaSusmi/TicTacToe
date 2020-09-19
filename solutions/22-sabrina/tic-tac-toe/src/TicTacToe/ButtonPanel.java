@@ -27,8 +27,6 @@ public class ButtonPanel {
     }
 
     public JPanel drawButtonPanel(){
-        manageBoard.lockBoard(buttonArray);
-
         panel.setLayout(null);
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
         panel.setBackground(Color.WHITE);
