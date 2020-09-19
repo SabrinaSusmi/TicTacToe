@@ -3,7 +3,7 @@ package TicTacToe;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class UnitTest {
+public class WinnerCheckTest {
     String[][] strings = new String[3][3];
     boolean won;
     HasWinner hasWinner = new HasWinner();
@@ -95,5 +95,4 @@ public class UnitTest {
         won = hasWinner.isWon(strings);
         Assertions.assertTrue(won);
     }
-
 }
