@@ -59,36 +59,21 @@ public class ButtonPanel {
         classicTheme.setFont(boardDecoration.labelFont);
         classicTheme.setSelected(true);
         panel.add(classicTheme);
-        classicTheme.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                switchTheme.setTheme("classic",buttonArray);
-            }
-        });
+        classicTheme.addActionListener(radioButtonListener);
 
         forrestTheme = new JRadioButton("Forest");
         forrestTheme.setBounds(20,130,150,50);
         forrestTheme.setBackground(Color.WHITE);
         forrestTheme.setFont(boardDecoration.labelFont);
         panel.add(forrestTheme);
-        forrestTheme.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                switchTheme.setTheme("forest",buttonArray);
-            }
-        });
+        forrestTheme.addActionListener(radioButtonListener);
 
         highContrastTheme = new JRadioButton("High Contrast");
         highContrastTheme.setBounds(20, 170,170,50);
         highContrastTheme.setBackground(Color.WHITE);
         highContrastTheme.setFont(boardDecoration.labelFont);
 
-        highContrastTheme.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                switchTheme.setTheme("highContrast",buttonArray);
-            }
-        });
+        highContrastTheme.addActionListener(radioButtonListener);
         panel.add(highContrastTheme);
 
 
@@ -102,11 +87,26 @@ public class ButtonPanel {
         button.setBackground(Color.darkGray);
         button.setForeground(Color.WHITE);
         button.setBorder(null);
-        button.addActionListener(selectAI);
+        button.addActionListener(aiButtonListener);
         panel.add(button);
     }
 
-    private ActionListener selectAI = new ActionListener() {
+    private ActionListener radioButtonListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if(e.getSource()==classicTheme){
+                switchTheme.setTheme("classic",buttonArray);
+            }
+            if(e.getSource()==forrestTheme){
+                switchTheme.setTheme("forest",buttonArray);
+            }
+            if(e.getSource()==highContrastTheme){
+                switchTheme.setTheme("highContrast",buttonArray);
+            }
+        }
+    };
+
+    private ActionListener aiButtonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             manageBoard.refreshBoard(buttonArray,moveString);
