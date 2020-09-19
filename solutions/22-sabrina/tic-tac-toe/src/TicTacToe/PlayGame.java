@@ -34,7 +34,7 @@ public class PlayGame {
                                 gameOver("X");
                             }
                             if (moveCount == 9) {
-                                gameOver(null);
+                                gameOver("draw");
                             }
                             if (moveCount >= 1) {
                                 move.setComputerMove(selectAi.getAi(), buttonArray, moveString);
@@ -51,12 +51,12 @@ public class PlayGame {
     } ;
 
     private void gameOver(String player){
-        if(player.equals(null)){
+        if(player.equals("draw")){
             winnerMessage.displayWinnerDialogueBox("Match Draw!");
         } else {
             winnerMessage.displayWinnerDialogueBox("Player" + player + " wins!");
         }
-        
+
         moveCount = 0;
         manageBoard.refreshBoard(buttonArray, moveString);
         manageBoard.lockBoard(buttonArray);
