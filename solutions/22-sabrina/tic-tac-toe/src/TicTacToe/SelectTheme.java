@@ -9,4 +9,8 @@ public class SelectTheme {
     public Theme getTheme(){
         return theme;
     }
+
+    public void defaultTheme(){
+        theme = new ClassicTheme();
+    }
 }

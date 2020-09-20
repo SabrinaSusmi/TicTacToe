@@ -58,6 +58,7 @@ public class ButtonPanel {
 
         classicTheme = new JRadioButton("Classic");
         classicTheme.setBounds(20, 90, 150, 50);
+        classicTheme.setSelected(true);
         addThemeButton(classicTheme);
 
         forrestTheme = new JRadioButton("Forest");

@@ -21,7 +21,7 @@ public class GameUI {
     private JPanel designBoard() {
 
         buttonPanel = new ButtonPanel(buttonArray,moveString,selectAI,selectTheme);
-        gamePanel = new GamePanel(buttonArray,moveString,selectAI);
+        gamePanel = new GamePanel(buttonArray,moveString,selectAI,selectTheme);
         playGame = new PlayGame(buttonArray,moveString,selectAI);
 
         containerPanel.setLayout(new GridLayout(1,2));

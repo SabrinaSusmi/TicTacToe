@@ -9,11 +9,14 @@ public class GamePanel {
     BoardDecoration boardDecoration = new BoardDecoration();
     PlayGame playGame;
     SelectAI selectAi;
+    SelectTheme selectTheme;
     ManageBoard manageBoard = new ManageBoard();
+    ApplyTheme applyTheme;
 
-    public GamePanel(JButton buttonArray[][], String[][] moveString, SelectAI selectAi){
+    public GamePanel(JButton buttonArray[][], String[][] moveString, SelectAI selectAi, SelectTheme selectTheme){
         this.buttonArray = buttonArray;
         this.selectAi= selectAi;
+        this.selectTheme=selectTheme;
         playGame = new PlayGame(buttonArray,moveString,selectAi);
     }
 
@@ -31,6 +34,8 @@ public class GamePanel {
             }
         }
         manageBoard.lockBoard(buttonArray);
+        selectTheme.defaultTheme();
+        applyTheme = new ApplyTheme(selectTheme,buttonArray);
 
         return panel;
     }
