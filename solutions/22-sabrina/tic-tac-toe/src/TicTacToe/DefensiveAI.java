@@ -23,7 +23,7 @@ public class DefensiveAI implements AI{
             for(int i=0; i<3; i++){
                 for(int j=0; j<3; j++){
                     if(moveString[i][j].equals("defend")){
-                        button[i][j].setText(theme.getAIIcon());
+                        button[i][j].setIcon(theme.getAIIcon());
                         moveString[i][j]="o";
                         break;
                     }

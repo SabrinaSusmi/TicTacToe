@@ -24,7 +24,7 @@ public class RandomAI implements AI{
             else
                 break;
         }
-        button[row][col].setText(theme.getAIIcon());
+        button[row][col].setIcon(theme.getAIIcon());
         moveString[row][col]="o";
     }
 }

@@ -21,10 +21,10 @@ public class ChangeIcon {
             for(int j=0; j<3; j++){
                 if(moveString[i][j]!= ""){
                     if(moveString[i][j]=="x"){
-                        buttonArray[i][j].setText(theme.getPlayerIcon());
+                        buttonArray[i][j].setIcon(theme.getPlayerIcon());
                     }
                     else {
-                        buttonArray[i][j].setText(theme.getAIIcon());
+                        buttonArray[i][j].setIcon(theme.getAIIcon());
                     }
                 }
             }

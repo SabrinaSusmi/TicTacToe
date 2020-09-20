@@ -12,10 +12,8 @@ public class Move {
 
     void setPlayerMove(JButton button){
         //button.setText("x");
-        //theme = selectTheme.getTheme();
-        //button.setText(theme.getPlayerIcon());
-        ClassicTheme classicTheme = new ClassicTheme();
-        button.setIcon(classicTheme.getPlayersIcon());
+        theme = selectTheme.getTheme();
+        button.setIcon(theme.getPlayerIcon());
     }
 
     void setComputerMove(AI ai, JButton[][] button, String[][] moveString){
