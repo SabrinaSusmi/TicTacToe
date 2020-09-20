@@ -12,4 +12,14 @@ public class ForestTheme implements Theme{
     public Color getBorderColor(){
         return boardDecoration.forestBorderColor;
     }
+
+    @Override
+    public String getPlayerIcon() {
+        return "F";
+    }
+
+    @Override
+    public String getAIIcon() {
+        return "R";
+    }
 }

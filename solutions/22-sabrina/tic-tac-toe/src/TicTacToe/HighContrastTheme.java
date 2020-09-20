@@ -12,4 +12,14 @@ public class HighContrastTheme implements Theme{
     public Color getBorderColor(){
         return boardDecoration.highContrastBorderColor;
     }
+
+    @Override
+    public String getPlayerIcon() {
+        return "H";
+    }
+
+    @Override
+    public String getAIIcon() {
+        return "G";
+    }
 }

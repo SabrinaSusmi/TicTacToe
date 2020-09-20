@@ -6,4 +6,6 @@ public interface Theme {
 
     Color getBackgroundColor();
     Color getBorderColor();
+    String getPlayerIcon();
+    String getAIIcon();
 }
