@@ -11,6 +11,7 @@ public class GameUI {
     ButtonPanel buttonPanel;
     GamePanel gamePanel;
     SelectAI selectAI = new SelectAI();
+    SelectTheme selectTheme = new SelectTheme();
     PlayGame playGame;
 
     public GameUI() {
@@ -19,7 +20,7 @@ public class GameUI {
 
     private JPanel designBoard() {
 
-        buttonPanel = new ButtonPanel(buttonArray,moveString,selectAI);
+        buttonPanel = new ButtonPanel(buttonArray,moveString,selectAI,selectTheme);
         gamePanel = new GamePanel(buttonArray,moveString,selectAI);
         playGame = new PlayGame(buttonArray,moveString,selectAI);
 

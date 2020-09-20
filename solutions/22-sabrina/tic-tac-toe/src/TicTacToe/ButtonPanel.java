@@ -18,11 +18,13 @@ public class ButtonPanel {
     SwitchTheme switchTheme = new SwitchTheme();
     ManageBoard manageBoard = new ManageBoard();
     SelectAI selectAi;
+    SelectTheme selectTheme;
 
-    public ButtonPanel(JButton buttonArray[][], String[][] moveString, SelectAI selectAi){
+    public ButtonPanel(JButton buttonArray[][], String[][] moveString, SelectAI selectAi, SelectTheme selectTheme){
         this.buttonArray = buttonArray;
         this.moveString=moveString;
         this.selectAi=selectAi;
+        this.selectTheme=selectTheme;
     }
 
     public JPanel drawButtonPanel(){
