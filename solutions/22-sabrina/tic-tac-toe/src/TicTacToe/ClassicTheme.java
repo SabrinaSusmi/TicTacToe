@@ -13,6 +13,14 @@ public class ClassicTheme implements Theme{
         this.button=button;
     }
 
+    public Color getBackgroundColor(){
+        return boardDecoration.classicBoardColor;
+    }
+
+    public Color getBorderColor(){
+        return boardDecoration.classicBorderColor;
+    }
+
     @Override
     public void drawTheme() {
         for (int i=0; i<3; i++){
