@@ -8,18 +8,26 @@ public class ForestTheme implements Theme{
     private JButton button[][] = new JButton[3][3];
     BoardDecoration boardDecoration = new BoardDecoration();
 
-    @Override
-    public void getButton(JButton button[][]){
-        this.button=button;
+    public Color getBackgroundColor(){
+        return boardDecoration.forestBoardColor;
     }
 
-    @Override
-    public void drawTheme() {
-        for (int i=0; i<3; i++) {
-            for (int j = 0; j < 3; j++) {
-                button[i][j].setBackground(boardDecoration.forestBoardColor);
-                button[i][j].setBorder(BorderFactory.createLineBorder(boardDecoration.forestBorderColor, 2));
-            }
-        }
+    public Color getBorderColor(){
+        return boardDecoration.forestBorderColor;
     }
+
+//    @Override
+//    public void getButton(JButton button[][]){
+//        this.button=button;
+//    }
+//
+//    @Override
+//    public void drawTheme() {
+//        for (int i=0; i<3; i++) {
+//            for (int j = 0; j < 3; j++) {
+//                button[i][j].setBackground(boardDecoration.forestBoardColor);
+//                button[i][j].setBorder(BorderFactory.createLineBorder(boardDecoration.forestBorderColor, 2));
+//            }
+//        }
+//    }
 }

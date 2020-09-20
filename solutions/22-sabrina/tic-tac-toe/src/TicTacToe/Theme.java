@@ -1,9 +1,13 @@
 package TicTacToe;
 
 import javax.swing.*;
+import java.awt.*;
 
 public interface Theme {
 
-    void drawTheme();
-    void getButton(JButton button[][]);
+    Color getBackgroundColor();
+    Color getBorderColor();
+
+//    void drawTheme();
+//    void getButton(JButton button[][]);
 }
