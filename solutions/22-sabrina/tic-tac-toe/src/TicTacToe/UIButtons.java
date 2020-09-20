@@ -110,10 +110,10 @@ public class UIButtons {
             manageBoard.refreshBoard(buttonArray,moveString);
             manageBoard.unlockBoard(buttonArray);
             if(e.getSource()==defensiveAIButton){
-                selectAi.setAI(new DefensiveAI());
+                selectAi.setAI(new DefensiveAI(selectTheme));
             }
             if(e.getSource()==randomAIButton){
-                selectAi.setAI(new RandomAI());
+                selectAi.setAI(new RandomAI(selectTheme));
             }
         }
     };
