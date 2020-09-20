@@ -6,7 +6,6 @@ import java.awt.*;
 public class GameUI {
     private JFrame frame = new JFrame();
     private JPanel containerPanel = new JPanel();
-    private JPanel panelButtons,panelGame;
     public JButton buttonArray[][] = new JButton[3][3];
     public String[][] moveString = new String[3][3];
     ButtonPanel buttonPanel;
@@ -19,19 +18,14 @@ public class GameUI {
     }
 
     private JPanel designBoard() {
-        panelGame = new JPanel();
-        panelButtons = new JPanel();
 
-        buttonPanel = new ButtonPanel(buttonArray,panelGame,moveString,selectAI);
-        gamePanel = new GamePanel(buttonArray,panelButtons,moveString,selectAI);
+        buttonPanel = new ButtonPanel(buttonArray,moveString,selectAI);
+        gamePanel = new GamePanel(buttonArray,moveString,selectAI);
         playGame = new PlayGame(buttonArray,moveString,selectAI);
 
-        panelGame = gamePanel.drawBoardGrid();
-        panelButtons = buttonPanel.drawButtonPanel();
-
         containerPanel.setLayout(new GridLayout(1,2));
-        containerPanel.add(panelGame);
-        containerPanel.add(panelButtons);
+        containerPanel.add(gamePanel.drawBoardGrid());
+        containerPanel.add(buttonPanel.drawButtonPanel());
 
         return containerPanel;
     }

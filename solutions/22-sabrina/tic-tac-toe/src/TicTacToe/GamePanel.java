@@ -11,14 +11,15 @@ public class GamePanel {
     SelectAI selectAi;
     ManageBoard manageBoard = new ManageBoard();
 
-    public GamePanel(JButton buttonArray[][], JPanel panel, String[][] moveString, SelectAI selectAi){
+    public GamePanel(JButton buttonArray[][], String[][] moveString, SelectAI selectAi){
         this.buttonArray = buttonArray;
-        this.panel=panel;
         this.selectAi= selectAi;
         playGame = new PlayGame(buttonArray,moveString,selectAi);
     }
 
     public JPanel drawBoardGrid(){
+
+        panel = new JPanel();
 
         panel.setLayout(new GridLayout(3,3));
         for (int i=0; i<3; i++) {

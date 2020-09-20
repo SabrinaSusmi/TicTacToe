@@ -19,14 +19,14 @@ public class ButtonPanel {
     ManageBoard manageBoard = new ManageBoard();
     SelectAI selectAi;
 
-    public ButtonPanel(JButton buttonArray[][], JPanel panel, String[][] moveString, SelectAI selectAi){
+    public ButtonPanel(JButton buttonArray[][], String[][] moveString, SelectAI selectAi){
         this.buttonArray = buttonArray;
-        this.panel=panel;
         this.moveString=moveString;
         this.selectAi=selectAi;
     }
 
     public JPanel drawButtonPanel(){
+        panel = new JPanel();
         panel.setLayout(null);
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
         panel.setBackground(Color.WHITE);
