@@ -1,9 +1,11 @@
 package TicTacToe;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class ForestTheme implements Theme{
     BoardDecoration boardDecoration = new BoardDecoration();
+    BoardIcon boardIcon = new BoardIcon();
 
     public Color getBackgroundColor(){
         return boardDecoration.forestBoardColor;
@@ -14,12 +16,12 @@ public class ForestTheme implements Theme{
     }
 
     @Override
-    public String getPlayerIcon() {
-        return "F";
+    public Icon getPlayerIcon() {
+        return boardIcon.getForestThemePlayerIcon();
     }
 
     @Override
-    public String getAIIcon() {
-        return "R";
+    public Icon getAIIcon() {
+        return boardIcon.getForestThemeAIIcon();
     }
 }
