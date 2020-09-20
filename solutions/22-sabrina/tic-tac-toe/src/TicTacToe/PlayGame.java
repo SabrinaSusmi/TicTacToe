@@ -27,7 +27,7 @@ public class PlayGame {
             for (int row = 0;  row< 3; row++) {
                 for (int col = 0; col< 3; col++) {
                     if (e.getSource().equals(buttonArray[row][col])) {
-                        if (buttonArray[row][col].getText() == "") {
+                        if (moveString[row][col] == "") {
                             move.setPlayerMove(buttonArray[row][col]);
                             moveString[row][col] = "x";
                             moveCount++;
