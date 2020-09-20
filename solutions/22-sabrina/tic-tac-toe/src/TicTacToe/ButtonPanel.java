@@ -19,6 +19,7 @@ public class ButtonPanel {
     ManageBoard manageBoard = new ManageBoard();
     SelectAI selectAi;
     SelectTheme selectTheme;
+    ApplyTheme applyTheme;
 
     public ButtonPanel(JButton buttonArray[][], String[][] moveString, SelectAI selectAi, SelectTheme selectTheme){
         this.buttonArray = buttonArray;
@@ -38,7 +39,7 @@ public class ButtonPanel {
         theme.setFont(boardDecoration.buttonFont);
         panel.add(theme);
 
-        switchTheme.setTheme("classic", buttonArray);
+        //switchTheme.setTheme("classic", buttonArray);
 
         createThemeButtonGroup();
         createAIButtons();
@@ -92,17 +93,35 @@ public class ButtonPanel {
         panel.add(radioButton);
     }
 
+//    private ActionListener radioButtonListener = new ActionListener() {
+//        @Override
+//        public void actionPerformed(ActionEvent e) {
+//            if(e.getSource()==classicTheme){
+//                switchTheme.setTheme("classic",buttonArray);
+//            }
+//            if(e.getSource()==forrestTheme){
+//                switchTheme.setTheme("forest",buttonArray);
+//            }
+//            if(e.getSource()==highContrastTheme){
+//                switchTheme.setTheme("highContrast",buttonArray);
+//            }
+//        }
+//    };
+
     private ActionListener radioButtonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(e.getSource()==classicTheme){
-                switchTheme.setTheme("classic",buttonArray);
+                selectTheme.setTheme(new ClassicTheme());
+                applyTheme = new ApplyTheme(selectTheme,buttonArray);
             }
             if(e.getSource()==forrestTheme){
-                switchTheme.setTheme("forest",buttonArray);
+                selectTheme.setTheme(new ForestTheme());
+                applyTheme = new ApplyTheme(selectTheme,buttonArray);
             }
             if(e.getSource()==highContrastTheme){
-                switchTheme.setTheme("highContrast",buttonArray);
+                selectTheme.setTheme(new HighContrastTheme());
+                applyTheme = new ApplyTheme(selectTheme,buttonArray);
             }
         }
     };

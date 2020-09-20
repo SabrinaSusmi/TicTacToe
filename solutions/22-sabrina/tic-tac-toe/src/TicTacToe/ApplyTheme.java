@@ -10,6 +10,7 @@ public class ApplyTheme {
     public ApplyTheme(SelectTheme selectTheme, JButton[][] buttonArray) {
         this.selectTheme = selectTheme;
         this.buttonArray = buttonArray;
+        setTheme();
     }
 
     public void setTheme(){
