@@ -15,7 +15,6 @@ public class ButtonPanel {
     public JButton[][] buttonArray;
     public String[][] moveString;
     AI ai;
-    SwitchTheme switchTheme = new SwitchTheme();
     ManageBoard manageBoard = new ManageBoard();
     SelectAI selectAi;
     SelectTheme selectTheme;
@@ -38,8 +37,6 @@ public class ButtonPanel {
         theme.setBounds(20, 50, 150, 50);
         theme.setFont(boardDecoration.buttonFont);
         panel.add(theme);
-
-        //switchTheme.setTheme("classic", buttonArray);
 
         createThemeButtonGroup();
         createAIButtons();
@@ -92,21 +89,6 @@ public class ButtonPanel {
         radioButton.addActionListener(radioButtonListener);
         panel.add(radioButton);
     }
-
-//    private ActionListener radioButtonListener = new ActionListener() {
-//        @Override
-//        public void actionPerformed(ActionEvent e) {
-//            if(e.getSource()==classicTheme){
-//                switchTheme.setTheme("classic",buttonArray);
-//            }
-//            if(e.getSource()==forrestTheme){
-//                switchTheme.setTheme("forest",buttonArray);
-//            }
-//            if(e.getSource()==highContrastTheme){
-//                switchTheme.setTheme("highContrast",buttonArray);
-//            }
-//        }
-//    };
 
     private ActionListener radioButtonListener = new ActionListener() {
         @Override
