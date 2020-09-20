@@ -21,14 +21,6 @@ public class ApplyTheme {
             for(int j=0; j<3; j++){
                 buttonArray[i][j].setBackground(theme.getBackgroundColor());
                 buttonArray[i][j].setBorder(BorderFactory.createLineBorder(theme.getBorderColor(), 2));
-                if(moveString[i][j]!= ""){
-                    if(moveString[i][j]=="x"){
-                        buttonArray[i][j].setText(theme.getPlayerIcon());
-                    }
-                    else {
-                        buttonArray[i][j].setText(theme.getAIIcon());
-                    }
-                }
             }
         }
     }
