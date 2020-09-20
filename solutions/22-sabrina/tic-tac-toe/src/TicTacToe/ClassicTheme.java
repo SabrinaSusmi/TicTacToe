@@ -7,18 +7,19 @@ import java.io.File;
 import java.io.IOException;
 
 public class ClassicTheme implements Theme{
-    Image X;
 
-    public ImageIcon getIconPlayer(){
-        Image imageX = null; try {
-            imageX = ImageIO.read(new File("src/TicTacToe/imageIcons/classicThemePlayerIcon.png"));
-        } catch (IOException e) {
-            System.out.println(e+" Image failed");
-        }
-        return new ImageIcon(imageX.getScaledInstance(120,120,Image.SCALE_AREA_AVERAGING));
-    }
+
+//    public ImageIcon getIconPlayer(){
+//        Image imageX = null; try {
+//            imageX = ImageIO.read(new File("src/TicTacToe/imageIcons/classicThemePlayerIcon.png"));
+//        } catch (IOException e) {
+//            System.out.println(e+" Image failed");
+//        }
+//        return new ImageIcon(imageX.getScaledInstance(120,120,Image.SCALE_AREA_AVERAGING));
+//    }
 
     BoardDecoration boardDecoration = new BoardDecoration();
+    BoardIcon boardIcon = new BoardIcon();
 
     public Color getBackgroundColor(){
         return boardDecoration.classicBoardColor;
@@ -29,16 +30,12 @@ public class ClassicTheme implements Theme{
     }
 
     @Override
-    public String getPlayerIcon() {
-        return "C";
+    public Icon getPlayerIcon() {
+        return boardIcon.getClassicThemePlayerIcon();
     }
 
     @Override
-    public String getAIIcon() {
-        return "L";
-    }
-
-    public Icon getPlayersIcon(){
-        return getIconPlayer();
+    public Icon getAIIcon() {
+        return boardIcon.getClassicThemeAIIcon();
     }
 }
