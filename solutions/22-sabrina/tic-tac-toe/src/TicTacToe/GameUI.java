@@ -22,7 +22,7 @@ public class GameUI {
 
         buttonPanel = new ButtonPanel(buttonArray,moveString,selectAI,selectTheme);
         gamePanel = new GamePanel(buttonArray,moveString,selectAI,selectTheme);
-        playGame = new PlayGame(buttonArray,moveString,selectAI);
+        playGame = new PlayGame(buttonArray,moveString,selectAI,selectTheme);
 
         containerPanel.setLayout(new GridLayout(1,2));
         containerPanel.add(gamePanel.drawBoardGrid());

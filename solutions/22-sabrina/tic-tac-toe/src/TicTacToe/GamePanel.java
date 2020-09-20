@@ -17,7 +17,7 @@ public class GamePanel {
         this.buttonArray = buttonArray;
         this.selectAi= selectAi;
         this.selectTheme=selectTheme;
-        playGame = new PlayGame(buttonArray,moveString,selectAi);
+        playGame = new PlayGame(buttonArray,moveString,selectAi,selectTheme);
     }
 
     public JPanel drawBoardGrid(){

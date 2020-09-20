@@ -7,17 +7,18 @@ import java.awt.event.ActionListener;
 public class PlayGame {
     private JButton[][] buttonArray;
     private String[][] moveString;
-    Move move = new Move();
+    Move move;
     HasWinner hasWinner = new HasWinner();
     WinnerMessage winnerMessage = new WinnerMessage();
     ManageBoard manageBoard = new ManageBoard();
     SelectAI selectAi;
     int moveCount=0;
 
-    public PlayGame(JButton[][] buttonArray, String[][] moveString, SelectAI selectAi){
+    public PlayGame(JButton[][] buttonArray, String[][] moveString, SelectAI selectAi, SelectTheme selectTheme){
         this.buttonArray = buttonArray;
         this.moveString=moveString;
         this.selectAi=selectAi;
+        move = new Move(selectTheme);
     }
 
     public ActionListener toggleMove = new ActionListener() {
