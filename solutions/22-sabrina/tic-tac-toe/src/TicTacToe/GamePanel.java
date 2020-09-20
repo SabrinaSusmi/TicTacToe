@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class GamePanel {
     private JButton[][] buttonArray;
+    private String[][] moveString;
     private JPanel panel;
     BoardDecoration boardDecoration = new BoardDecoration();
     PlayGame playGame;
@@ -17,6 +18,7 @@ public class GamePanel {
         this.buttonArray = buttonArray;
         this.selectAi= selectAi;
         this.selectTheme=selectTheme;
+        this.moveString = moveString;
         playGame = new PlayGame(buttonArray,moveString,selectAi,selectTheme);
     }
 
@@ -35,7 +37,7 @@ public class GamePanel {
         }
         manageBoard.lockBoard(buttonArray);
         selectTheme.defaultTheme();
-        applyTheme = new ApplyTheme(selectTheme,buttonArray);
+        applyTheme = new ApplyTheme(selectTheme,buttonArray,moveString);
 
         return panel;
     }
