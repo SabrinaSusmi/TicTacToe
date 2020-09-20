@@ -14,7 +14,6 @@ public class ButtonPanel {
     BoardDecoration boardDecoration = new BoardDecoration();
     public JButton[][] buttonArray;
     public String[][] moveString;
-    AI ai;
     ManageBoard manageBoard = new ManageBoard();
     SelectAI selectAi;
     SelectTheme selectTheme;
@@ -114,12 +113,10 @@ public class ButtonPanel {
             manageBoard.refreshBoard(buttonArray,moveString);
             manageBoard.unlockBoard(buttonArray);
             if(e.getSource()==defensiveAIButton){
-                ai = new DefensiveAI();
-                selectAi.setAI(ai);
+                selectAi.setAI(new DefensiveAI());
             }
             if(e.getSource()==randomAIButton){
-                ai = new RandomAI();
-                selectAi.setAI(ai);
+                selectAi.setAI(new RandomAI());
             }
         }
     };
