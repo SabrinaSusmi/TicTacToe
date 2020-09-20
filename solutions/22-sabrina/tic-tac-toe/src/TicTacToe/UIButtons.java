@@ -88,17 +88,17 @@ public class UIButtons {
         public void actionPerformed(ActionEvent e) {
             if(e.getSource()==classicTheme){
                 selectTheme.setTheme(new ClassicTheme());
-                applyTheme = new ApplyTheme(selectTheme,buttonArray,moveString);
+                applyTheme = new ApplyTheme(selectTheme,buttonArray);
                 changeIcon = new ChangeIcon(selectTheme,buttonArray,moveString);
             }
             if(e.getSource()==forrestTheme){
                 selectTheme.setTheme(new ForestTheme());
-                applyTheme = new ApplyTheme(selectTheme,buttonArray,moveString);
+                applyTheme = new ApplyTheme(selectTheme,buttonArray);
                 changeIcon = new ChangeIcon(selectTheme,buttonArray,moveString);
             }
             if(e.getSource()==highContrastTheme){
                 selectTheme.setTheme(new HighContrastTheme());
-                applyTheme = new ApplyTheme(selectTheme,buttonArray,moveString);
+                applyTheme = new ApplyTheme(selectTheme,buttonArray);
                 changeIcon = new ChangeIcon(selectTheme,buttonArray,moveString);
             }
         }

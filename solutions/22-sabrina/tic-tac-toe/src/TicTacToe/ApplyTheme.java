@@ -6,12 +6,10 @@ public class ApplyTheme {
     Theme theme;
     SelectTheme selectTheme;
     private JButton[][] buttonArray;
-    private String[][] moveString;
 
-    public ApplyTheme(SelectTheme selectTheme, JButton[][] buttonArray, String[][] moveString) {
+    public ApplyTheme(SelectTheme selectTheme, JButton[][] buttonArray) {
         this.selectTheme = selectTheme;
         this.buttonArray = buttonArray;
-        this.moveString = moveString;
         setTheme();
     }
 
