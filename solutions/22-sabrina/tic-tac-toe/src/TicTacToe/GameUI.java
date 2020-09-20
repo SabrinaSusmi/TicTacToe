@@ -35,7 +35,7 @@ public class GameUI {
         frame.add(designBoard());
         frame.setAlwaysOnTop(true);
         frame.setResizable(false);
-        frame.setSize(1000,500);
+        frame.setSize(1100,600);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Tic Tac Toe");
