@@ -4,17 +4,17 @@ import javax.swing.*;
 
 public class ManageBoard {
     public void refreshBoard(JButton[][] buttons, String[][] moveString){
-        for (int i=0; i<3; i++) {
-            for (int j = 0; j < 3; j++) {
-                buttons[i][j].setIcon(null);
-                moveString[i][j]="";
+        for (int row=0; row<3; row++) {
+            for (int col = 0; col < 3; col++) {
+                buttons[row][col].setIcon(null);
+                moveString[row][col]="";
             }
         }
     }
     public void isBoardUnlocked(JButton[][] buttons, boolean lock){
-        for (int i=0; i<3; i++) {
-            for (int j = 0; j < 3; j++) {
-                buttons[i][j].setEnabled(lock);
+        for (int row=0; row<3; row++) {
+            for (int col = 0; col < 3; col++) {
+                buttons[row][col].setEnabled(lock);
             }
         }
     }

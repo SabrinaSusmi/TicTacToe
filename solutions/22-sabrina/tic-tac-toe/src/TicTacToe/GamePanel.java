@@ -30,11 +30,11 @@ public class GamePanel {
         panel = new JPanel();
 
         panel.setLayout(new GridLayout(3,3));
-        for (int i=0; i<3; i++) {
-            for (int j = 0; j < 3; j++) {
-                buttonArray[i][j] = new JButton();
-                buttonArray[i][j].addActionListener(playGame.toggleMove);
-                panel.add(buttonArray[i][j]);
+        for (int row=0; row<3; row++) {
+            for (int col = 0; col < 3; col++) {
+                buttonArray[row][col] = new JButton();
+                buttonArray[row][col].addActionListener(playGame.toggleMove);
+                panel.add(buttonArray[row][col]);
             }
         }
         manageBoard.refreshBoard(buttonArray, buttonKeyTracker);
