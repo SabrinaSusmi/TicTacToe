@@ -9,7 +9,7 @@ import java.awt.*;
 
 public class GamePanel {
     private JButton[][] buttonArray;
-    private String [][] moveString;
+    private String [][] buttonKeyTracker;
     private JPanel panel;
     PlayGame playGame;
     SelectAI selectAi;
@@ -17,12 +17,12 @@ public class GamePanel {
     ManageBoard manageBoard = new ManageBoard();
     ApplyTheme applyTheme;
 
-    public GamePanel(JButton buttonArray[][], String[][] moveString, SelectAI selectAi, SelectTheme selectTheme){
+    public GamePanel(JButton buttonArray[][], String[][] buttonKeyTracker, SelectAI selectAi, SelectTheme selectTheme){
         this.buttonArray = buttonArray;
         this.selectAi= selectAi;
         this.selectTheme=selectTheme;
-        this.moveString=moveString;
-        playGame = new PlayGame(buttonArray,moveString,selectAi,selectTheme);
+        this.buttonKeyTracker = buttonKeyTracker;
+        playGame = new PlayGame(buttonArray, buttonKeyTracker,selectAi,selectTheme);
     }
 
     public JPanel drawBoardGrid(){
@@ -37,7 +37,7 @@ public class GamePanel {
                 panel.add(buttonArray[i][j]);
             }
         }
-        manageBoard.refreshBoard(buttonArray,moveString);
+        manageBoard.refreshBoard(buttonArray, buttonKeyTracker);
         manageBoard.lockBoard(buttonArray);
         selectTheme.defaultTheme();
         applyTheme = new ApplyTheme(selectTheme,buttonArray);

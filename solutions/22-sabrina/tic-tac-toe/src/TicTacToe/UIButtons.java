@@ -19,15 +19,15 @@ public class UIButtons {
     BoardDecoration boardDecoration = new BoardDecoration();
     ManageBoard manageBoard = new ManageBoard();
     public JButton[][] buttonArray;
-    public String[][] moveString;
+    public String[][] buttonKeyTracker;
     SelectAI selectAi;
     SelectTheme selectTheme;
     ApplyTheme applyTheme;
     ChangeIcon changeIcon;
 
-    public UIButtons(JButton[][] buttonArray, String[][] moveString, SelectAI selectAi, SelectTheme selectTheme) {
+    public UIButtons(JButton[][] buttonArray, String[][] buttonKeyTracker, SelectAI selectAi, SelectTheme selectTheme) {
         this.buttonArray = buttonArray;
-        this.moveString = moveString;
+        this.buttonKeyTracker = buttonKeyTracker;
         this.selectAi = selectAi;
         this.selectTheme = selectTheme;
     }
@@ -94,17 +94,17 @@ public class UIButtons {
             if(e.getSource()==classicTheme){
                 selectTheme.setTheme(new ClassicTheme());
                 applyTheme = new ApplyTheme(selectTheme,buttonArray);
-                changeIcon = new ChangeIcon(selectTheme,buttonArray,moveString);
+                changeIcon = new ChangeIcon(selectTheme,buttonArray, buttonKeyTracker);
             }
             if(e.getSource()==forrestTheme){
                 selectTheme.setTheme(new ForestTheme());
                 applyTheme = new ApplyTheme(selectTheme,buttonArray);
-                changeIcon = new ChangeIcon(selectTheme,buttonArray,moveString);
+                changeIcon = new ChangeIcon(selectTheme,buttonArray, buttonKeyTracker);
             }
             if(e.getSource()==highContrastTheme){
                 selectTheme.setTheme(new HighContrastTheme());
                 applyTheme = new ApplyTheme(selectTheme,buttonArray);
-                changeIcon = new ChangeIcon(selectTheme,buttonArray,moveString);
+                changeIcon = new ChangeIcon(selectTheme,buttonArray, buttonKeyTracker);
             }
         }
     };
@@ -112,7 +112,7 @@ public class UIButtons {
     private ActionListener aiButtonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            manageBoard.refreshBoard(buttonArray,moveString);
+            manageBoard.refreshBoard(buttonArray, buttonKeyTracker);
             manageBoard.unlockBoard(buttonArray);
             if(e.getSource()==defensiveAIButton){
                 selectAi.setAI(new DefensiveAI(selectTheme));

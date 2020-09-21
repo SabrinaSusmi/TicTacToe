@@ -10,7 +10,7 @@ public class GameUI {
     private JFrame frame = new JFrame();
     private JPanel containerPanel = new JPanel();
     public JButton buttonArray[][] = new JButton[3][3];
-    public String[][] moveString = new String[3][3];
+    public String[][] buttonKeyTracker = new String[3][3];
     ButtonPanel buttonPanel;
     GamePanel gamePanel;
     SelectAI selectAI = new SelectAI();
@@ -23,9 +23,9 @@ public class GameUI {
 
     private JPanel designBoard() {
 
-        buttonPanel = new ButtonPanel(buttonArray,moveString,selectAI,selectTheme);
-        gamePanel = new GamePanel(buttonArray,moveString,selectAI,selectTheme);
-        playGame = new PlayGame(buttonArray,moveString,selectAI,selectTheme);
+        buttonPanel = new ButtonPanel(buttonArray, buttonKeyTracker,selectAI,selectTheme);
+        gamePanel = new GamePanel(buttonArray, buttonKeyTracker,selectAI,selectTheme);
+        playGame = new PlayGame(buttonArray, buttonKeyTracker,selectAI,selectTheme);
 
         containerPanel.setLayout(new GridLayout(1,2));
         containerPanel.add(gamePanel.drawBoardGrid());

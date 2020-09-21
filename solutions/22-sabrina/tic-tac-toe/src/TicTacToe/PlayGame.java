@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class PlayGame {
     private JButton[][] buttonArray;
-    private String[][] moveString;
+    private String[][] buttonKeyTracker;
     Move move;
     HasWinner hasWinner = new HasWinner();
     WinnerMessage winnerMessage = new WinnerMessage();
@@ -17,9 +17,9 @@ public class PlayGame {
     SelectAI selectAi;
     int moveCount=0;
 
-    public PlayGame(JButton[][] buttonArray, String[][] moveString, SelectAI selectAi, SelectTheme selectTheme){
+    public PlayGame(JButton[][] buttonArray, String[][] buttonKeyTracker, SelectAI selectAi, SelectTheme selectTheme){
         this.buttonArray = buttonArray;
-        this.moveString=moveString;
+        this.buttonKeyTracker =buttonKeyTracker;
         this.selectAi=selectAi;
         move = new Move(selectTheme);
     }
@@ -30,21 +30,21 @@ public class PlayGame {
             for (int row = 0;  row< 3; row++) {
                 for (int col = 0; col< 3; col++) {
                     if (e.getSource().equals(buttonArray[row][col])) {
-                        if (moveString[row][col] == "") {
+                        if (buttonKeyTracker[row][col] == "") {
                             move.setPlayerMove(buttonArray[row][col]);
-                            moveString[row][col] = "x";
+                            buttonKeyTracker[row][col] = "x";
                             moveCount++;
-                            if (hasWinner.isWon(moveString) == true){
+                            if (hasWinner.isWon(buttonKeyTracker) == true){
                                 gameOver("X");
                             }
                             if (moveCount == 9) {
                                 gameOver("draw");
                             }
                             if (moveCount >= 1) {
-                                move.setComputerMove(selectAi.getAi(), buttonArray, moveString);
+                                move.setComputerMove(selectAi.getAi(), buttonArray, buttonKeyTracker);
                                 moveCount++;
                             }
-                            if (hasWinner.isWon(moveString) == true){
+                            if (hasWinner.isWon(buttonKeyTracker) == true){
                                 gameOver("O");
                             }
                         }
@@ -62,7 +62,7 @@ public class PlayGame {
         }
 
         moveCount = 0;
-        manageBoard.refreshBoard(buttonArray, moveString);
+        manageBoard.refreshBoard(buttonArray, buttonKeyTracker);
         manageBoard.lockBoard(buttonArray);
     }
 }

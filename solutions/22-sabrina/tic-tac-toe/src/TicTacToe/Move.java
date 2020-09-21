@@ -19,7 +19,7 @@ public class Move {
         button.setIcon(theme.getPlayerIcon());
     }
 
-    void setComputerMove(AI ai, JButton[][] button, String[][] moveString){
-        ai.move(button,moveString);
+    void setComputerMove(AI ai, JButton[][] button, String[][] buttonKeyTracker){
+        ai.move(button,buttonKeyTracker);
     }
 }
