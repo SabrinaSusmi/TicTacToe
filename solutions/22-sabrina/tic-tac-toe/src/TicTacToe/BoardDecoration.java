@@ -6,7 +6,6 @@ public class BoardDecoration {
 
     Font labelFont = new Font("Arial", Font.BOLD, 15);
     Font buttonFont = new Font("Arial", Font.BOLD, 20);
-    Font boardFont = new Font("Arial", Font.BOLD, 40);
 
     public Color classicBoardColor = new Color(0xffffff);
     public Color classicBorderColor = new Color(0x000000);
