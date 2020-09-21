@@ -113,7 +113,7 @@ public class UIButtons {
         @Override
         public void actionPerformed(ActionEvent e) {
             manageBoard.refreshBoard(buttonArray, buttonKeyTracker);
-            manageBoard.unlockBoard(buttonArray);
+            manageBoard.isBoardUnlocked(buttonArray,true);
             if(e.getSource()==defensiveAIButton){
                 selectAi.setAI(new DefensiveAI(selectTheme));
             }

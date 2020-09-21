@@ -38,7 +38,7 @@ public class GamePanel {
             }
         }
         manageBoard.refreshBoard(buttonArray, buttonKeyTracker);
-        manageBoard.lockBoard(buttonArray);
+        manageBoard.isBoardUnlocked(buttonArray,false);
         selectTheme.defaultTheme();
         applyTheme = new ApplyTheme(selectTheme,buttonArray);
 

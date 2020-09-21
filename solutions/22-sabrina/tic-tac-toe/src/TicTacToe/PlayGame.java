@@ -63,6 +63,6 @@ public class PlayGame {
 
         moveCount = 0;
         manageBoard.refreshBoard(buttonArray, buttonKeyTracker);
-        manageBoard.lockBoard(buttonArray);
+        manageBoard.isBoardUnlocked(buttonArray,false);
     }
 }
