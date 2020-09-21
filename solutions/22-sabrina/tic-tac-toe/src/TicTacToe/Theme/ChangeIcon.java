@@ -17,14 +17,14 @@ public class ChangeIcon {
 
     public void changeExistingIcon(){
         theme = selectTheme.getTheme();
-        for(int i=0; i<3; i++){
-            for(int j=0; j<3; j++){
-                if(moveString[i][j]!= ""){
-                    if(moveString[i][j]=="x"){
-                        buttonArray[i][j].setIcon(theme.getPlayerIcon());
+        for(int row=0; row<3; row++){
+            for(int col=0; col<3; col++){
+                if(moveString[row][col]!= ""){
+                    if(moveString[row][col]=="x"){
+                        buttonArray[row][col].setIcon(theme.getPlayerIcon());
                     }
                     else {
-                        buttonArray[i][j].setIcon(theme.getAIIcon());
+                        buttonArray[row][col].setIcon(theme.getAIIcon());
                     }
                 }
             }

@@ -6,10 +6,12 @@ public class ApplyTheme {
     Theme theme;
     SelectTheme selectTheme;
     private JButton[][] buttonArray;
+    ChangeIcon changeIcon;
 
-    public ApplyTheme(SelectTheme selectTheme, JButton[][] buttonArray) {
+    public ApplyTheme(SelectTheme selectTheme, JButton[][] buttonArray, String[][] buttonKeyTracker) {
         this.selectTheme = selectTheme;
         this.buttonArray = buttonArray;
+        changeIcon = new ChangeIcon(selectTheme,buttonArray,buttonKeyTracker);
         setTheme();
     }
 

@@ -40,7 +40,7 @@ public class GamePanel {
         manageBoard.refreshBoard(buttonArray, buttonKeyTracker);
         manageBoard.isBoardUnlocked(buttonArray,false);
         selectTheme.defaultTheme();
-        applyTheme = new ApplyTheme(selectTheme,buttonArray);
+        applyTheme = new ApplyTheme(selectTheme,buttonArray,buttonKeyTracker);
 
         return panel;
     }

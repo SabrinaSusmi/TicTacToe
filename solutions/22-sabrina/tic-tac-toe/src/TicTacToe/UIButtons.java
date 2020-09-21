@@ -23,7 +23,6 @@ public class UIButtons {
     SelectAI selectAi;
     SelectTheme selectTheme;
     ApplyTheme applyTheme;
-    ChangeIcon changeIcon;
 
     public UIButtons(JButton[][] buttonArray, String[][] buttonKeyTracker, SelectAI selectAi, SelectTheme selectTheme) {
         this.buttonArray = buttonArray;
@@ -93,18 +92,15 @@ public class UIButtons {
         public void actionPerformed(ActionEvent e) {
             if(e.getSource()==classicTheme){
                 selectTheme.setTheme(new ClassicTheme());
-                applyTheme = new ApplyTheme(selectTheme,buttonArray);
-                changeIcon = new ChangeIcon(selectTheme,buttonArray, buttonKeyTracker);
+                applyTheme = new ApplyTheme(selectTheme,buttonArray,buttonKeyTracker);
             }
             if(e.getSource()==forrestTheme){
                 selectTheme.setTheme(new ForestTheme());
-                applyTheme = new ApplyTheme(selectTheme,buttonArray);
-                changeIcon = new ChangeIcon(selectTheme,buttonArray, buttonKeyTracker);
+                applyTheme = new ApplyTheme(selectTheme,buttonArray,buttonKeyTracker);
             }
             if(e.getSource()==highContrastTheme){
                 selectTheme.setTheme(new HighContrastTheme());
-                applyTheme = new ApplyTheme(selectTheme,buttonArray);
-                changeIcon = new ChangeIcon(selectTheme,buttonArray, buttonKeyTracker);
+                applyTheme = new ApplyTheme(selectTheme,buttonArray,buttonKeyTracker);
             }
         }
     };
