@@ -6,17 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ClassicTheme implements Theme {
-
-
-//    public ImageIcon getIconPlayer(){
-//        Image imageX = null; try {
-//            imageX = ImageIO.read(new File("src/TicTacToe/imageIcons/classicThemePlayerIcon.png"));
-//        } catch (IOException e) {
-//            System.out.println(e+" Image failed");
-//        }
-//        return new ImageIcon(imageX.getScaledInstance(120,120,Image.SCALE_AREA_AVERAGING));
-//    }
-
     BoardDecoration boardDecoration = new BoardDecoration();
     BoardIcon boardIcon = new BoardIcon();
 
