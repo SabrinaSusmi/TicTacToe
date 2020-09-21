@@ -58,7 +58,7 @@ public class PlayGame {
         if(player.equals("draw")){
             winnerMessage.displayWinnerDialogueBox("Match Draw!");
         } else {
-            winnerMessage.displayWinnerDialogueBox("Player" + player + " wins!");
+            winnerMessage.displayWinnerDialogueBox("Player " + player + " wins!");
         }
 
         moveCount = 0;

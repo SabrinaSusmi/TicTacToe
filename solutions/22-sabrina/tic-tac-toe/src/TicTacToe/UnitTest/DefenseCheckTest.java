@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.UnitTest;
 
 import TicTacToe.AI.DefensiveMoveChecker;
 import org.junit.Test;
