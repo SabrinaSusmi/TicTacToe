@@ -11,7 +11,6 @@ public class GamePanel {
     private JButton[][] buttonArray;
     private String [][] moveString;
     private JPanel panel;
-    BoardDecoration boardDecoration = new BoardDecoration();
     PlayGame playGame;
     SelectAI selectAi;
     SelectTheme selectTheme;
