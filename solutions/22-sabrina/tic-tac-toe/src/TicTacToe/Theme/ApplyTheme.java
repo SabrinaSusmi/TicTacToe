@@ -15,10 +15,10 @@ public class ApplyTheme {
 
     public void setTheme(){
         theme = selectTheme.getTheme();
-        for(int i=0; i<3; i++){
-            for(int j=0; j<3; j++){
-                buttonArray[i][j].setBackground(theme.getBackgroundColor());
-                buttonArray[i][j].setBorder(BorderFactory.createLineBorder(theme.getBorderColor(), 3));
+        for(int row=0; row<3; row++){
+            for(int col=0; col<3; col++){
+                buttonArray[row][col].setBackground(theme.getBackgroundColor());
+                buttonArray[row][col].setBorder(BorderFactory.createLineBorder(theme.getBorderColor(), 3));
             }
         }
     }

@@ -8,10 +8,10 @@ public class ChangeIcon {
     private JButton[][] buttonArray;
     private String[][] moveString;
 
-    public ChangeIcon(SelectTheme selectTheme, JButton[][] buttonArray, String[][] moveString) {
+    public ChangeIcon(SelectTheme selectTheme, JButton[][] buttonArray, String[][] buttonKeyTracker) {
         this.selectTheme = selectTheme;
         this.buttonArray = buttonArray;
-        this.moveString = moveString;
+        this.moveString = buttonKeyTracker;
         changeExistingIcon();
     }
 
