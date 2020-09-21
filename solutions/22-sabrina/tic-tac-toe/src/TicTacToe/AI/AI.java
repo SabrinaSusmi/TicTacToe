@@ -3,5 +3,5 @@ package TicTacToe.AI;
 import javax.swing.*;
 
 public interface AI {
-    public void move(JButton[][] button, String[][] moveString);
+    void move(JButton[][] buttonArray, String[][] buttonKeyTracker);
 }

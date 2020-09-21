@@ -1,22 +1,22 @@
 package TicTacToe.AI;
 
 public class DefensiveMoveChecker {
-    String[][] moveString;
+    String[][] buttonKeyTracker;
 
-    public DefensiveMoveChecker(String[][] moveString) {
-        this.moveString=moveString;
+    public DefensiveMoveChecker(String[][] buttonKeyTracker) {
+        this.buttonKeyTracker = buttonKeyTracker;
     }
 
     public boolean checkDefenseRow(){
         for(int i=0; i<3; i++){
-            if (moveString[i][0] == moveString[i][1] && moveString[i][0] == "x" && moveString[i][2]=="") {
-                moveString[i][2]="defend";
+            if (buttonKeyTracker[i][0] == buttonKeyTracker[i][1] && buttonKeyTracker[i][0] == "x" && buttonKeyTracker[i][2]=="") {
+                buttonKeyTracker[i][2]="defend";
                 return true;
-            } else if (moveString[i][1] == moveString[i][2] && moveString[i][1] == "x" && moveString[i][0]=="") {
-                moveString[i][0]="defend";
+            } else if (buttonKeyTracker[i][1] == buttonKeyTracker[i][2] && buttonKeyTracker[i][1] == "x" && buttonKeyTracker[i][0]=="") {
+                buttonKeyTracker[i][0]="defend";
                 return true;
-            } else if(moveString[i][0] == moveString[i][2] && moveString[i][0] == "x" && moveString[i][1]==""){
-                moveString[i][1]="defend";
+            } else if(buttonKeyTracker[i][0] == buttonKeyTracker[i][2] && buttonKeyTracker[i][0] == "x" && buttonKeyTracker[i][1]==""){
+                buttonKeyTracker[i][1]="defend";
                 return true;
             }
         }
@@ -25,14 +25,14 @@ public class DefensiveMoveChecker {
 
     public boolean checkDefenseColumn(){
         for(int i=0; i<3; i++){
-            if (moveString[0][i] == moveString[1][i] && moveString[0][i] == "x" && moveString[2][i]=="") {
-                moveString[2][i]="defend";
+            if (buttonKeyTracker[0][i] == buttonKeyTracker[1][i] && buttonKeyTracker[0][i] == "x" && buttonKeyTracker[2][i]=="") {
+                buttonKeyTracker[2][i]="defend";
                 return true;
-            } else if (moveString[1][i] == moveString[2][i] && moveString[1][i] == "x" && moveString[0][i]=="") {
-                moveString[0][i]="defend";
+            } else if (buttonKeyTracker[1][i] == buttonKeyTracker[2][i] && buttonKeyTracker[1][i] == "x" && buttonKeyTracker[0][i]=="") {
+                buttonKeyTracker[0][i]="defend";
                 return true;
-            } else if(moveString[0][i] == moveString[2][i] && moveString[0][i] == "x" && moveString[1][i]==""){
-                moveString[1][i]="defend";
+            } else if(buttonKeyTracker[0][i] == buttonKeyTracker[2][i] && buttonKeyTracker[0][i] == "x" && buttonKeyTracker[1][i]==""){
+                buttonKeyTracker[1][i]="defend";
                 return true;
             }
         }
@@ -41,14 +41,14 @@ public class DefensiveMoveChecker {
 
     public boolean checkDefenseFirstDiagonal() {
         for (int i = 0; i < 3; i++) {
-            if(moveString[0][0]==moveString[1][1] && moveString[1][1]=="x" && moveString[2][2]==""){
-                moveString[2][2]="defend";
+            if(buttonKeyTracker[0][0]== buttonKeyTracker[1][1] && buttonKeyTracker[1][1]=="x" && buttonKeyTracker[2][2]==""){
+                buttonKeyTracker[2][2]="defend";
                 return true;
-            } else if(moveString[2][2]==moveString[1][1] && moveString[1][1]=="x" && moveString[0][0]==""){
-                moveString[0][0]="defend";
+            } else if(buttonKeyTracker[2][2]== buttonKeyTracker[1][1] && buttonKeyTracker[1][1]=="x" && buttonKeyTracker[0][0]==""){
+                buttonKeyTracker[0][0]="defend";
                 return true;
-            } else if(moveString[0][0]==moveString[2][2] && moveString[0][0]=="x" && moveString[1][1]==""){
-                moveString[1][1]="defend";
+            } else if(buttonKeyTracker[0][0]== buttonKeyTracker[2][2] && buttonKeyTracker[0][0]=="x" && buttonKeyTracker[1][1]==""){
+                buttonKeyTracker[1][1]="defend";
                 return true;
             }
         }
@@ -57,14 +57,14 @@ public class DefensiveMoveChecker {
 
     public boolean checkDefenseSecondDiagonal() {
         for (int i = 0; i < 3; i++) {
-            if(moveString[0][2]==moveString[1][1] && moveString[1][1]=="x" && moveString[2][0]==""){
-                moveString[2][0]="defend";
+            if(buttonKeyTracker[0][2]== buttonKeyTracker[1][1] && buttonKeyTracker[1][1]=="x" && buttonKeyTracker[2][0]==""){
+                buttonKeyTracker[2][0]="defend";
                 return true;
-            } else if(moveString[2][0]==moveString[1][1] && moveString[1][1]=="x" && moveString[0][2]==""){
-                moveString[0][2]="defend";
+            } else if(buttonKeyTracker[2][0]== buttonKeyTracker[1][1] && buttonKeyTracker[1][1]=="x" && buttonKeyTracker[0][2]==""){
+                buttonKeyTracker[0][2]="defend";
                 return true;
-            } else if(moveString[0][2]==moveString[2][0] && moveString[0][2]=="x" && moveString[1][1]==""){
-                moveString[1][1]="defend";
+            } else if(buttonKeyTracker[0][2]== buttonKeyTracker[2][0] && buttonKeyTracker[0][2]=="x" && buttonKeyTracker[1][1]==""){
+                buttonKeyTracker[1][1]="defend";
                 return true;
             }
         }

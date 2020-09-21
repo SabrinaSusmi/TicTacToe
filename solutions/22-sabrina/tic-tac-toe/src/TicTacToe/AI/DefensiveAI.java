@@ -22,11 +22,11 @@ public class DefensiveAI implements AI{
         theme = selectTheme.getTheme();
         defensiveMoveChecker = new DefensiveMoveChecker(moveString);
         if(defensiveMoveChecker.canBeDefended()){
-            for(int i=0; i<3; i++){
-                for(int j=0; j<3; j++){
-                    if(moveString[i][j].equals("defend")){
-                        button[i][j].setIcon(theme.getAIIcon());
-                        moveString[i][j]="o";
+            for(int row=0; row<3; row++){
+                for(int col=0; col<3; col++){
+                    if(moveString[row][col].equals("defend")){
+                        button[row][col].setIcon(theme.getAIIcon());
+                        moveString[row][col]="o";
                         break;
                     }
                 }
