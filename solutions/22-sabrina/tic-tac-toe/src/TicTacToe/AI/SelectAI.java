@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.AI;
 
 public class SelectAI {
     AI ai;

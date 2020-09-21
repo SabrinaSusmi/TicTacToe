@@ -1,4 +1,7 @@
-package TicTacToe;
+package TicTacToe.AI;
+
+import TicTacToe.Theme.SelectTheme;
+import TicTacToe.Theme.Theme;
 
 import javax.swing.*;
 import java.util.Random;

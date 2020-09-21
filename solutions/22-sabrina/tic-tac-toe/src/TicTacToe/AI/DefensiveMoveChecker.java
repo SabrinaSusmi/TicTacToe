@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.AI;
 
 public class DefensiveMoveChecker {
     String[][] moveString;

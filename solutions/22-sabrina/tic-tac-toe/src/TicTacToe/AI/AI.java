@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.AI;
 
 import javax.swing.*;
 
