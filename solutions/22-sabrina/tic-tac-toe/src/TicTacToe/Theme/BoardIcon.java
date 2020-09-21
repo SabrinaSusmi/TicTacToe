@@ -8,11 +8,11 @@ import java.io.IOException;
 
 public class BoardIcon {
     private String classicPlayerIconPath = "src/TicTacToe/imageIcons/classicPlayer.png";
-    private String classicAIIconPath = "src/TicTacToe/imageIcons/classicThemeAiIcon.jpg";
-    private String forestPlayerIconPath = "src/TicTacToe/imageIcons/forestThemePlayerIcon.png";
-    private String forestAIIconPath = "src/TicTacToe/imageIcons/forestThemeAiIcon.png";
-    private String highContrastPlayerIconPath = "src/TicTacToe/imageIcons/highContrastThemePlayerIcon.png";
-    private String highContrastAIIconPath = "src/TicTacToe/imageIcons/highContrastThemeAiIcon.jpg";
+    private String classicAIIconPath = "src/TicTacToe/imageIcons/classicAI.png";
+    private String forestPlayerIconPath = "src/TicTacToe/imageIcons/forestPlayer.png";
+    private String forestAIIconPath = "src/TicTacToe/imageIcons/forestAI.png";
+    private String highContrastPlayerIconPath = "src/TicTacToe/imageIcons/highContrastPlayer.jpg";
+    private String highContrastAIIconPath = "src/TicTacToe/imageIcons/highContrastAI.jpg";
 
     public Icon getIcon(String path){
         Image image = null;
@@ -21,7 +21,7 @@ public class BoardIcon {
         } catch (IOException e) {
             System.out.println(e+" Image failed");
         }
-        return new ImageIcon(image);
+        return new ImageIcon(image.getScaledInstance(200,200,Image.SCALE_SMOOTH));
     }
 
     public Icon getClassicThemePlayerIcon(){
