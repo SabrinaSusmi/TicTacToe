@@ -1,5 +1,8 @@
 package TicTacToe;
 
+import TicTacToe.AI.SelectAI;
+import TicTacToe.Theme.SelectTheme;
+
 import javax.swing.*;
 import java.awt.*;
 

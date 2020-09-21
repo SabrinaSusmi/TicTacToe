@@ -1,5 +1,6 @@
 package TicTacToe;
 
+import TicTacToe.AI.DefensiveMoveChecker;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 

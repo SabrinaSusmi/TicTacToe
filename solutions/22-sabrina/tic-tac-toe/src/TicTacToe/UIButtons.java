@@ -1,5 +1,10 @@
 package TicTacToe;
 
+import TicTacToe.AI.DefensiveAI;
+import TicTacToe.AI.RandomAI;
+import TicTacToe.AI.SelectAI;
+import TicTacToe.Theme.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

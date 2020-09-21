@@ -1,5 +1,9 @@
 package TicTacToe;
 
+import TicTacToe.AI.AI;
+import TicTacToe.Theme.SelectTheme;
+import TicTacToe.Theme.Theme;
+
 import javax.swing.*;
 
 public class Move {
