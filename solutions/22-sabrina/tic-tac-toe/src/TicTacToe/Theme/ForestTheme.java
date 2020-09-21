@@ -1,27 +1,29 @@
-package TicTacToe;
+package TicTacToe.Theme;
+
+import TicTacToe.BoardDecoration;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class HighContrastTheme implements Theme{
+public class ForestTheme implements Theme {
     BoardDecoration boardDecoration = new BoardDecoration();
     BoardIcon boardIcon = new BoardIcon();
 
     public Color getBackgroundColor(){
-        return boardDecoration.highContrastBoardColor;
+        return boardDecoration.forestBoardColor;
     }
 
     public Color getBorderColor(){
-        return boardDecoration.highContrastBorderColor;
+        return boardDecoration.forestBorderColor;
     }
 
     @Override
     public Icon getPlayerIcon() {
-        return boardIcon.getHighContrastThemePlayerIcon();
+        return boardIcon.getForestThemePlayerIcon();
     }
 
     @Override
     public Icon getAIIcon() {
-        return boardIcon.getHighContrastThemeAIIcon();
+        return boardIcon.getForestThemeAIIcon();
     }
 }

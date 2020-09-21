@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.Theme;
 
 import javax.swing.*;
 import java.awt.*;

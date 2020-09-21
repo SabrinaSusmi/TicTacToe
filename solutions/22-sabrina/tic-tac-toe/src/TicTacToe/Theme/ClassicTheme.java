@@ -1,12 +1,11 @@
-package TicTacToe;
+package TicTacToe.Theme;
 
-import javax.imageio.ImageIO;
+import TicTacToe.BoardDecoration;
+
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 
-public class ClassicTheme implements Theme{
+public class ClassicTheme implements Theme {
 
 
 //    public ImageIcon getIconPlayer(){

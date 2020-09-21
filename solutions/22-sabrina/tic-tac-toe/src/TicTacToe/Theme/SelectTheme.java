@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.Theme;
 
 public class SelectTheme {
     Theme theme;

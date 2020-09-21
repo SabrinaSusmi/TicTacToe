@@ -1,4 +1,4 @@
-package TicTacToe;
+package TicTacToe.Theme;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class BoardIcon {
-    private String classicPlayerIconPath = "src/TicTacToe/imageIcons/classicThemePlayerIcon.png";
+    private String classicPlayerIconPath = "src/TicTacToe/imageIcons/classicPlayer.png";
     private String classicAIIconPath = "src/TicTacToe/imageIcons/classicThemeAiIcon.jpg";
     private String forestPlayerIconPath = "src/TicTacToe/imageIcons/forestThemePlayerIcon.png";
     private String forestAIIconPath = "src/TicTacToe/imageIcons/forestThemeAiIcon.png";
@@ -21,7 +21,7 @@ public class BoardIcon {
         } catch (IOException e) {
             System.out.println(e+" Image failed");
         }
-        return new ImageIcon(image.getScaledInstance(120,120,Image.SCALE_AREA_AVERAGING));
+        return new ImageIcon(image);
     }
 
     public Icon getClassicThemePlayerIcon(){
